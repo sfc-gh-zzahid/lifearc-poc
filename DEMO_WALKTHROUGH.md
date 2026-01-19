@@ -1,526 +1,247 @@
-# LifeArc POC - Demo Walkthrough Guide
+# LifeArc POC - Demo Walkthrough Checklist
 
-## Workshop Overview
+## Pre-Demo Setup (5 min before)
 
-| Item | Details |
-|------|---------|
-| **Customer** | LifeArc |
-| **Duration** | 90 minutes |
-| **Format** | Architecture discussion + hands-on demos |
-| **Audience** | Data engineering, Data science, IT leadership |
-
----
-
-## Timing Summary
-
-| Section | Duration | Cumulative |
-|---------|----------|------------|
-| Opening & Context | 5 min | 0:05 |
-| Part 1: Architecture (UC 1-3) | 30 min | 0:35 |
-| Part 2: Demos (UC 4-6) | 45 min | 1:20 |
-| Q&A Buffer | 10 min | 1:30 |
-
----
-
-## Pre-Workshop Checklist
-
-```
-[ ] Snowflake session open in Snowsight
-[ ] Connected to LIFEARC_POC database
-[ ] Role set to ACCOUNTADMIN
-[ ] Warehouse DEMO_WH running
-[ ] This guide open on second screen
-[ ] Architecture SQL files ready to share screen
-```
-
-**Quick Verify Query:**
 ```sql
-SELECT TABLE_SCHEMA, TABLE_NAME, ROW_COUNT 
-FROM LIFEARC_POC.INFORMATION_SCHEMA.TABLES 
-WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA NOT IN ('INFORMATION_SCHEMA')
-ORDER BY TABLE_SCHEMA;
+-- Verify environment
+USE DATABASE LIFEARC_POC;
+USE WAREHOUSE COMPUTE_WH;
+
+-- Quick health check
+SELECT COUNT(*) FROM AI_DEMO.COMPOUND_PIPELINE_ANALYSIS;  -- Should be 29
+SELECT COUNT(*) FROM AI_DEMO.BOARD_CANDIDATE_SCORECARD;   -- Should be 8
+SHOW STREAMLITS IN DATABASE LIFEARC_POC;                  -- Should show 2
+SHOW SHARES LIKE 'LIFEARC%';                              -- Should show 1
 ```
-*Expected: 9 tables, data loaded*
 
 ---
 
-# OPENING [0:00 - 0:05]
+## Demo Flow (15-20 minutes)
 
-## Presenter Script
+### Scene 1: The Problem Statement (1 min)
 
-> "Thank you for joining today. Over the next 90 minutes, we'll work through your six use cases - three architecture discussions and three hands-on demonstrations.
->
-> What makes this session different: we've pre-built everything in Snowflake using your actual requirements - the 250TB archive challenge, the clinical trial data governance needs, and the Azure ML integration patterns.
->
-> Let's start with where LifeArc is today..."
+**Setup:** Open Snowsight, show AI_DEMO schema
 
-## Customer Context Slide (if available)
+**Say:** "LifeArc has 29 compounds in development, $903M invested, and needs to answer strategic questions about their pipeline. Today we'll show how Snowflake Intelligence enables natural language analytics."
 
-| Current State | Pain Point |
-|--------------|------------|
-| 250TB on Ctera | Discovery is difficult, access is uncontrolled |
-| Clinical trial data in silos | Compliance burden, manual masking |
-| Azure ML workflows | Data movement friction, no lineage |
-
----
-
-# PART 1: ARCHITECTURE DISCUSSIONS [0:05 - 0:35]
-
----
-
-## Use Case 1: Enterprise Data Archiving [0:05 - 0:15]
-
-### Story Hook
-> "You mentioned 250TB on Ctera and growing. The challenge isn't storage - Azure Blob is cheap. The challenge is finding what you need and controlling who sees it."
-
-### Open Architecture File
-```
-File: architecture/usecase1_data_archiving.sql
-```
-
-### Key Points to Cover (10 min)
-
-**[0:05-0:07] The Problem**
-> "Traditional archives are 'write once, search never'. Data goes in, costs money, and nobody can find anything."
-
-**[0:07-0:10] The Pattern**
-Show ASCII diagram in the SQL file, explain:
-- Snowflake = metadata brain (searchable, governed)
-- Azure Blob = storage tiers (Hot/Cool/Archive)
-- Presigned URLs = secure on-demand access
-
-**[0:10-0:13] Key Queries to Show**
 ```sql
--- File catalog pattern
-SELECT file_path, file_size_gb, data_owner, 
-       retention_expiry, tags
-FROM LIFEARC_POC.ARCHIVE.FILE_CATALOG
-WHERE tags:department = 'Research'
-  AND created_date > '2020-01-01';
+-- Show the executive summary
+SELECT * FROM LIFEARC_POC.AI_DEMO.EXECUTIVE_PIPELINE_SUMMARY;
 ```
-
-**[0:13-0:15] Discussion Questions**
-> "What's your current discovery process? How do researchers find archived data today?"
-
-### Transition
-> "Now that we've covered the storage pattern, let's talk about what happens when you need to process this data for ML..."
 
 ---
 
-## Use Case 2: MLOps Workflows [0:15 - 0:25]
+### Scene 2: Talk to Your Data - Intelligence Demo (5 min)
 
-### Story Hook
-> "The question isn't whether Snowflake can do ML - it's knowing when to use SQL, when to use Snowpark, and when to push to external compute."
+**Open:** Streamlit app `INTELLIGENCE_DEMO`
 
-### Open Architecture File
-```
-File: architecture/usecase2_mlops_workflows.sql
-```
+**Navigate:** Apps → LIFEARC_POC.AI_DEMO.INTELLIGENCE_DEMO
 
-### Key Points to Cover (10 min)
+**Demo the 5 "Why" Questions:**
 
-**[0:15-0:18] The Decision Framework**
-Show the decision tree:
-```
-Is it aggregation/transformation? → SQL (80% of work)
-Is it row-level Python logic? → Snowpark UDFs (15%)
-Is it GPU training? → External (Azure ML) (5%)
-```
+1. **Discovery Problem:** "Why are compounds failing drug-likeness?"
+   - CNS has 0% drug-like, BRCA has 100%
+   - LogP > 5 is the killer
+   - **Action:** Adjust chemistry guidelines
 
-**[0:18-0:21] Feature Store Pattern**
+2. **Clinical Performance:** "Why is BRCA1 outperforming KRAS?"
+   - BRCA1: 52.9% response rate vs KRAS: 32.1%
+   - Key difference: ctDNA confirmation (100% vs 33%)
+   - **Action:** Mandate ctDNA for KRAS
+
+3. **Budget Allocation:** "How should we reallocate R&D?"
+   - Oncology: 21.6x ROI
+   - CNS: 2.8x ROI
+   - **Action:** Shift $107M from CNS to Oncology
+
+4. **Research Intelligence:** Search for "EGFR resistance"
+   - Shows C797S mutation (42% of patients)
+   - MET bypass mechanism (28%)
+   - **Action:** Pivot EGFR program
+
+5. **Board Priorities:** Show the top 3 candidates
+   - Olaparib-LA (85% success, $1.2B peak)
+   - OmoMYC-LA (78% success, $3.5B peak)
+   - Ceralasertib-LA (65% success, $800M peak)
+
+**Key Message:** "The AI stays INSIDE Snowflake - PHI never leaves the platform."
+
+---
+
+### Scene 3: Snowflake-Unique Differentiators (5 min)
+
+**Return to Snowsight SQL worksheet**
+
+#### A. Secure Data Sharing (Unique to Snowflake)
+
+**Say:** "LifeArc needs to share trial data with CRO partners. In other platforms, this means copying data. In Snowflake, it's zero-copy."
+
 ```sql
--- Feature engineering stays in Snowflake
+-- Show the share we created
+DESC SHARE LIFEARC_CRO_SHARE;
+
+-- The partner gets LIVE data, not a copy
+-- No ETL, no data movement, complete audit trail
+```
+
+**Key Message:** "Databricks Delta Sharing copies data. Fabric requires export. Snowflake shares LIVE data with zero copies."
+
+#### B. Time Travel (Unique to Snowflake)
+
+**Say:** "For GxP compliance, you need audit trails. Snowflake has this built-in."
+
+```sql
+-- Query data as it was 1 hour ago
+SELECT COUNT(*) as current_count FROM AI_DEMO.COMPOUND_PIPELINE_ANALYSIS;
+SELECT COUNT(*) as one_hour_ago FROM AI_DEMO.COMPOUND_PIPELINE_ANALYSIS AT (OFFSET => -3600);
+
+-- If you accidentally delete data:
+-- DROP TABLE important_table;
+-- UNDROP TABLE important_table;  -- Instant recovery!
+```
+
+**Key Message:** "No backup configuration needed. Query ANY point in the last 90 days."
+
+#### C. Zero-Copy Cloning (Unique to Snowflake)
+
+**Say:** "Data scientists need production-like data for testing. Watch this."
+
+```sql
+-- Clone the entire database in seconds (even if it's 10TB)
+CREATE DATABASE LIFEARC_DEV CLONE LIFEARC_POC;
+
+-- Verify it worked
+SELECT COUNT(*) FROM LIFEARC_DEV.AI_DEMO.COMPOUND_PIPELINE_ANALYSIS;
+
+-- Clean up
+DROP DATABASE LIFEARC_DEV;
+```
+
+**Key Message:** "That took 3 seconds. You pay only for data that CHANGES in the clone."
+
+#### D. Cortex AI Privacy (Unique to Snowflake)
+
+**Say:** "What if you need AI on PHI data? Most platforms require sending data to external APIs - a HIPAA violation."
+
+```sql
+-- AI analysis - data NEVER leaves Snowflake
+SELECT SNOWFLAKE.CORTEX.COMPLETE(
+    'llama3.1-70b',
+    'Summarize the key competitive threats to EGFR programs based on: ' || 
+    (SELECT LISTAGG(key_finding, '. ') FROM AI_DEMO.RESEARCH_INTELLIGENCE WHERE target_gene = 'EGFR')
+) AS competitive_analysis;
+```
+
+**Key Message:** "Cortex runs INSIDE Snowflake. Your PHI never touches an external API."
+
+---
+
+### Scene 4: ML Pipeline (3 min)
+
+**Say:** "We've also built an end-to-end ML pipeline for predicting drug-likeness."
+
+```sql
+-- Show the trained model
+SHOW SNOWFLAKE.ML.CLASSIFICATION IN SCHEMA ML_DEMO;
+
+-- Show predictions
 SELECT 
-    patient_id,
-    AVG(biomarker_value) OVER (PARTITION BY patient_id ORDER BY measurement_date 
-                               ROWS BETWEEN 7 PRECEDING AND CURRENT ROW) AS rolling_avg_7d,
-    LAG(biomarker_value, 1) OVER (PARTITION BY patient_id ORDER BY measurement_date) AS prev_value
-FROM clinical_measurements;
-```
-
-**[0:21-0:23] Model Registry**
-> "Every model version, every training dataset, every prediction - traceable back to source data."
-
-**[0:23-0:25] Discussion Questions**
-> "What does your current feature engineering look like? Where do models get deployed today?"
-
-### Transition
-> "You mentioned Azure ML Studio specifically. Let's look at how Snowflake integrates with your existing Azure investment..."
-
----
-
-## Use Case 3: Azure ML Integration [0:25 - 0:35]
-
-### Story Hook
-> "Azure ML is great for training. Snowflake is great for data. The question is: how do we make them work together without creating another data silo?"
-
-### Open Architecture File
-```
-File: architecture/usecase3_azure_ml_integration.sql
-```
-
-### Key Points to Cover (10 min)
-
-**[0:25-0:28] Data Flow Pattern**
-```
-Snowflake → Export to ADLS → Azure ML Training → Results back to Snowflake
-    ↓                                                    ↑
-  Feature                                           Predictions
-   Store                                            + Lineage
-```
-
-**[0:28-0:31] Key Integration Points**
-```sql
--- Export training data
-COPY INTO @azure_ml_stage/training/experiment_001/
-FROM (
-    SELECT * FROM LIFEARC_POC.ML_FEATURES.TRAINING_FEATURES
-    WHERE experiment_id = 'EXP-001'
-)
-FILE_FORMAT = (TYPE = PARQUET);
-```
-
-**[0:31-0:33] Model Lineage**
-```sql
--- Track what data trained what model
-INSERT INTO model_lineage (model_id, training_data_hash, feature_columns)
-SELECT 
-    'model_v1.2',
-    HASH_AGG(*),
-    ARRAY_CONSTRUCT('feature_1', 'feature_2', 'feature_3')
-FROM training_dataset;
-```
-
-**[0:33-0:35] Discussion Questions**
-> "What's your current process for tracking which data trained which model? How do you handle model retraining?"
-
-### Transition
-> "Now let's shift gears from architecture to hands-on. I'll show you how Snowflake handles your unstructured research data..."
-
----
-
-# PART 2: HANDS-ON DEMOS [0:35 - 1:20]
-
----
-
-## Demo 4: Unstructured Data Handling [0:35 - 0:50]
-
-### Story Hook
-> "You have FASTA files from sequencing, SDF files from drug discovery, JSON protocols from clinical trials - all in different systems. Let's see how Snowflake unifies this."
-
-### Demo Flow (15 min)
-
-**[0:35-0:38] Show the Data**
-```sql
--- Gene sequences loaded from FASTA
-SELECT sequence_id, gene_name, sequence_length, gc_content,
-       SUBSTRING(sequence, 1, 30) || '...' AS preview
-FROM LIFEARC_POC.UNSTRUCTURED_DATA.GENE_SEQUENCES;
-```
-*Expected: 5 genes (BRCA1, TP53, EGFR, MYC, KRAS)*
-
-**[0:38-0:42] FASTA Parsing UDF**
-> "This is a Python UDF that runs inside Snowflake - no external compute, no data movement."
-
-```sql
--- Parse FASTA format on the fly
-SELECT * FROM TABLE(LIFEARC_POC.UNSTRUCTURED_DATA.PARSE_FASTA(
-'>GENE_BRCA1_HUMAN | Human BRCA1 gene | DNA repair
-ATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAA
->GENE_TP53_HUMAN | Human TP53 gene | Tumor suppressor
-ATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTCTGAGTCAGGAAACATTTTCA'
-));
-```
-*Show: sequence_id, gene_name, gc_content calculated*
-
-**[0:42-0:45] Cortex LLM Analysis**
-> "Now watch this - Cortex LLM is built into Snowflake. No API keys, no external calls."
-
-```sql
--- AI-powered gene analysis
-SELECT 
-    gene_name,
-    gc_content,
-    SNOWFLAKE.CORTEX.COMPLETE(
-        'llama3.1-8b',
-        'In one sentence, explain the clinical significance of ' || gene_name || ' in cancer research.'
-    ) AS ai_analysis
-FROM LIFEARC_POC.UNSTRUCTURED_DATA.GENE_SEQUENCES
-WHERE gene_name IN ('BRCA1', 'KRAS');
-```
-*Wait for response - usually 2-3 seconds*
-
-**[0:45-0:48] Clinical Trial JSON**
-> "Your clinical trial protocols are nested JSON. Snowflake handles this natively."
-
-```sql
--- Query nested JSON
-SELECT 
-    trial_id,
-    protocol_data:title::VARCHAR AS title,
-    protocol_data:phase::VARCHAR AS phase,
-    protocol_data:enrollment.current::INT AS enrolled,
-    protocol_data:enrollment.target::INT AS target,
-    ROUND(protocol_data:enrollment.current / protocol_data:enrollment.target * 100, 1) || '%' AS progress
-FROM LIFEARC_POC.UNSTRUCTURED_DATA.CLINICAL_TRIALS;
-```
-
-```sql
--- Flatten nested arrays (treatment arms)
-SELECT 
-    ct.trial_id,
-    arm.value:name::VARCHAR AS arm_name,
-    arm.value:intervention::VARCHAR AS intervention,
-    arm.value:patients::INT AS patients
-FROM LIFEARC_POC.UNSTRUCTURED_DATA.CLINICAL_TRIALS ct,
-LATERAL FLATTEN(input => ct.protocol_data:arms) arm;
-```
-
-**[0:48-0:50] Drug Discovery Compounds**
-```sql
--- Lipinski Rule of 5 compliance (SMILES-based compounds)
-SELECT 
-    compound_id, 
-    molecule_name, 
-    smiles,
-    properties:logP::FLOAT AS logP,
-    properties:tpsa::FLOAT AS tpsa,
-    CASE 
-        WHEN properties:logP::FLOAT <= 5
-         AND properties:num_h_donors::INT <= 5
-         AND properties:lipinski_violations::INT = 0
-        THEN 'DRUG-LIKE' ELSE 'REVIEW'
-    END AS lipinski_status
-FROM LIFEARC_POC.UNSTRUCTURED_DATA.COMPOUND_LIBRARY;
-```
-
-### Key Message
-> "All your research data types - genomics, molecular, clinical - queryable with SQL, governed, and AI-ready."
-
-### Transition
-> "Now that your data is in Snowflake, how do you control who sees what? Let's look at governance..."
-
----
-
-## Demo 5: Data Governance & Sharing [0:50 - 1:05]
-
-### Story Hook
-> "Clinical trial data has patient IDs, ages, site information. Different teams need different views. Traditionally, you'd create 10 different views. With Snowflake, the policy follows the data."
-
-### Demo Flow (15 min)
-
-**[0:50-0:52] Show Raw Data (as ACCOUNTADMIN)**
-```sql
--- Full visibility as admin
-SELECT result_id, patient_id, patient_age, site_id, response_category
-FROM LIFEARC_POC.DATA_SHARING.CLINICAL_TRIAL_RESULTS
+    compound_name,
+    therapeutic_area,
+    actual_drug_likeness,
+    ROUND(predicted_drug_like_prob * 100, 1) AS ml_prediction_pct
+FROM ML_DEMO.COMPOUND_PREDICTIONS
+WHERE actual_drug_likeness != CASE WHEN predicted_drug_like_prob > 0.5 THEN 'drug_like' ELSE 'non_drug_like' END
 LIMIT 5;
-```
-*Note: Patient IDs and ages visible because we're ACCOUNTADMIN (masking policies bypass admins)*
-*To demo masking, switch to CLINICAL_ANALYST role*
 
-**[0:52-0:55] Explain Masking Policies**
-> "We've applied two masking policies - one for patient IDs, one for ages. Watch what happens when a different role queries this."
-
-```sql
--- Show what policies are applied
-SELECT policy_name, policy_kind, ref_column_name
-FROM TABLE(INFORMATION_SCHEMA.POLICY_REFERENCES(
-    ref_entity_domain => 'TABLE',
-    ref_entity_name => 'LIFEARC_POC.DATA_SHARING.CLINICAL_TRIAL_RESULTS'
-));
-```
-*Shows: MASK_PATIENT_ID, MASK_AGE, SITE_BASED_ACCESS*
-
-**[0:55-0:58] Show Data Classification Tags**
-```sql
--- Tags define the data contract
-SELECT tag_name, tag_value, level, column_name
-FROM TABLE(INFORMATION_SCHEMA.TAG_REFERENCES_ALL_COLUMNS(
-    'LIFEARC_POC.DATA_SHARING.CLINICAL_TRIAL_RESULTS', 'TABLE'
-));
-```
-*Shows: DATA_SENSITIVITY=CONFIDENTIAL, DATA_DOMAIN=CLINICAL, PII_TYPE on columns*
-
-**[0:58-1:00] Row Access Policy**
-> "UK team only sees UK sites. US team only sees US sites. Global team sees everything."
-
-```sql
--- Show site access mapping
-SELECT role_name, allowed_site_id 
-FROM LIFEARC_POC.GOVERNANCE.SITE_ACCESS_MAPPING
-ORDER BY role_name;
+-- Show model registry
+SELECT model_name, model_version, status, metrics FROM ML_DEMO.MODEL_REGISTRY;
 ```
 
-**[1:00-1:02] Data Contracts Summary**
-```sql
--- Single view of all governance
-SELECT * FROM LIFEARC_POC.GOVERNANCE.DATA_CONTRACTS_SUMMARY;
-```
-
-**[1:02-1:05] Secure Sharing Pattern**
-> "When you share with a CRO partner, they get a secure view - data never leaves your account."
-
-```sql
--- Partner view with aggregated adverse events
-SELECT result_id, masked_patient_id, adverse_event_severity, site_id
-FROM LIFEARC_POC.DATA_SHARING.CLINICAL_RESULTS_PARTNER_VIEW
-LIMIT 5;
-```
-
-### Key Message
-> "One table, multiple views based on who's asking. No ETL, no view proliferation, full audit trail."
-
-### Transition
-> "Now let's talk about how your automated pipelines connect securely..."
+**Key Message:** "Feature engineering, training, registry, inference - all in Snowflake."
 
 ---
 
-## Demo 6: Programmatic Access & Auth [1:05 - 1:20]
+### Scene 5: Data Governance (2 min)
 
-### Story Hook
-> "Your ML pipelines run overnight. Your ETL jobs run on schedule. They can't use interactive login. Key-pair authentication solves this securely."
-
-### Demo Flow (15 min)
-
-**[1:05-1:08] Service Account Pattern**
-```sql
--- Dedicated service accounts per application
-SHOW USERS LIKE 'LIFEARC%';
-```
-*Shows: LIFEARC_ML_SERVICE, LIFEARC_ETL_SERVICE*
+**Say:** "For regulated industries, governance is critical."
 
 ```sql
--- Each with dedicated role
-SHOW ROLES LIKE 'LIFEARC%';
-```
-*Shows: LIFEARC_ML_PIPELINE_ROLE, LIFEARC_ETL_SERVICE_ROLE*
+-- Show data classification tags
+SHOW TAGS IN SCHEMA GOVERNANCE;
 
-**[1:08-1:11] Key-Pair Authentication Explained**
-> "No passwords stored. Private key stays with your application, public key registered in Snowflake."
+-- Show which tables are tagged as PHI
+SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TAG_REFERENCES
+WHERE TAG_NAME = 'DATA_CLASSIFICATION' 
+  AND TAG_VALUE = 'PHI'
+  AND OBJECT_DATABASE = 'LIFEARC_POC';
 
-```sql
--- Describe service account
-DESC USER LIFEARC_ML_SERVICE;
-```
-*Note: has_rsa_public_key would be TRUE in production*
-
-Show code pattern (don't execute):
-```python
-# Python connection with key-pair
-from cryptography.hazmat.primitives import serialization
-import snowflake.connector
-
-with open("rsa_key.p8", "rb") as key_file:
-    private_key = serialization.load_pem_private_key(
-        key_file.read(),
-        password=b'passphrase'
-    )
-
-conn = snowflake.connector.connect(
-    user='LIFEARC_ML_SERVICE',
-    account='your_account',
-    private_key=private_key,
-    warehouse='DEMO_WH',
-    database='LIFEARC_POC'
-)
+-- Show masking policies
+SHOW MASKING POLICIES IN SCHEMA GOVERNANCE;
 ```
 
-**[1:11-1:14] Network Policies**
-> "Defense in depth - even with the right key, only approved IP ranges can connect."
-
-```sql
--- Network restrictions
-SHOW NETWORK POLICIES LIKE 'LIFEARC%';
-```
-*Shows: LIFEARC_ML_NETWORK_POLICY with 3 allowed IP ranges*
-
-**[1:14-1:17] API Pattern for ML Pipelines**
-```sql
--- Inference batch retrieval for ML pipeline
-CALL LIFEARC_POC.ML_FEATURES.GET_INFERENCE_BATCH('LA-2024-001', 5);
-```
-*Returns JSON array of patient features ready for model inference*
-
-**[1:17-1:20] OAuth Integration**
-```sql
--- For user-facing apps
-SHOW SECURITY INTEGRATIONS LIKE 'LIFEARC%';
-```
-*Shows: LIFEARC_CUSTOM_OAUTH*
-
-### Key Message
-> "Key-pair for automation, OAuth for users, network policies for everyone. Full audit of every connection."
+**Key Message:** "Data classification is SQL-queryable. Auditors can verify compliance in seconds."
 
 ---
 
-# CLOSING [1:20 - 1:30]
+### Scene 6: Native DBT (2 min)
 
-## Summary Slide
+**Say:** "LifeArc uses dbt for transformations. Snowflake has native support."
 
-| Use Case | Solution | Key Benefit |
-|----------|----------|-------------|
-| Data Archiving | Snowflake + Azure Blob | Searchable, governed, cost-optimized |
-| MLOps | Feature Store + Lineage | 80% SQL, full traceability |
-| Azure ML | Native Integration | No data silos, bidirectional |
-| Unstructured Data | Snowpark + Cortex | Parse anything, AI-ready |
-| Governance | Tags + Policies | Compliance without complexity |
-| Programmatic Access | Key-pair + Network | Secure automation at scale |
+```sql
+-- Show the dbt project
+SHOW DBT PROJECTS IN DATABASE LIFEARC_POC;
 
-## Recommended Next Steps
+-- Show versions (synced from Git)
+SHOW VERSIONS IN DBT PROJECT LIFEARC_POC.PUBLIC.LIFEARC_DBT_PROJECT;
 
-1. **POC Extension** - Connect to real LifeArc data sample
-2. **Architecture Review** - Deep dive on Use Case 1 (250TB archive)
-3. **Security Workshop** - Key-pair setup with your Azure Key Vault
-4. **Streamlit Deployment** - Deploy Demo 4 app in Snowsight
+-- Run dbt (if time permits)
+-- EXECUTE DBT PROJECT LIFEARC_DBT_PROJECT ARGS = 'build';
+```
 
-## Q&A Preparation
-
-### Anticipated Questions
-
-**Q: How does Snowflake pricing compare to Ctera for 250TB?**
-> A: Storage is similar (compressed), but you gain discoverability, governance, and SQL access. The question is: what's the cost of NOT finding your data?
-
-**Q: Can we use existing Azure AD for authentication?**
-> A: Yes - External OAuth integration with Azure AD. Users authenticate via SSO, Snowflake trusts Azure AD tokens.
-
-**Q: What about HIPAA compliance?**
-> A: Snowflake is HIPAA-eligible. Masking policies + row access + encryption + audit logs = compliance framework.
-
-**Q: How do we migrate 250TB?**
-> A: Phased approach. Start with metadata catalog, files stay in Azure Blob. Migrate hot data first, cold data references.
+**Key Message:** "Git-synced, version-controlled, native integration."
 
 ---
 
-## Emergency Fallbacks
+## Closing (1 min)
 
-### If Cortex LLM times out:
-```sql
--- Simpler query
-SELECT SNOWFLAKE.CORTEX.COMPLETE('llama3.1-8b', 'Hello') AS test;
-```
+**Say:** "To summarize what makes Snowflake unique for life sciences:"
 
-### If UDF fails:
-```sql
--- Show pre-loaded data instead
-SELECT * FROM LIFEARC_POC.UNSTRUCTURED_DATA.GENE_SEQUENCES;
-```
+| Capability | Why It Matters |
+|------------|----------------|
+| **Secure Data Sharing** | Share with CROs without copying |
+| **Time Travel** | GxP audit compliance built-in |
+| **Zero-Copy Cloning** | Dev environments in seconds |
+| **Cortex AI Privacy** | AI on PHI without compliance risk |
+| **Native Governance** | Tags, masking, access policies |
 
-### If role doesn't exist:
+**Final Message:** "Databricks and Fabric are good platforms, but for regulated life sciences data, Snowflake provides capabilities they cannot match."
+
+---
+
+## Backup Queries (if something fails)
+
 ```sql
--- Stay as ACCOUNTADMIN, explain concept verbally
-SELECT CURRENT_ROLE();
+-- If Streamlit won't load, run queries directly:
+SELECT therapeutic_area, COUNT(*) as compounds,
+       SUM(CASE WHEN drug_likeness = 'drug_like' THEN 1 ELSE 0 END) as drug_like
+FROM AI_DEMO.COMPOUND_PIPELINE_ANALYSIS
+GROUP BY therapeutic_area;
+
+-- If Cortex times out:
+SELECT doc_title, key_finding FROM AI_DEMO.RESEARCH_INTELLIGENCE 
+WHERE competitive_impact = 'High' LIMIT 3;
 ```
 
 ---
 
-## Post-Workshop
+## Objects Reference
 
-- [ ] Send this walkthrough document to customer
-- [ ] Share GitHub repo access
-- [ ] Schedule follow-up for architecture deep-dive
-- [ ] Create POC extension proposal
-
----
-
-*Generated for LifeArc POC Workshop - January 2026*
+| Object | Location | Purpose |
+|--------|----------|---------|
+| `INTELLIGENCE_DEMO` | AI_DEMO schema (Streamlit) | Talk to Your Data |
+| `UNSTRUCTURED_DATA_DEMO` | AI_DEMO schema (Streamlit) | FASTA/JSON/Cortex |
+| `LIFEARC_CRO_SHARE` | Account level | Zero-copy sharing |
+| `DRUG_LIKENESS_MODEL` | ML_DEMO schema | ML classification |
+| `LIFEARC_DBT_PROJECT` | PUBLIC schema | Native dbt |
+| `DRUG_DISCOVERY_SEMANTIC_VIEW` | AI_DEMO schema | Intelligence config |
