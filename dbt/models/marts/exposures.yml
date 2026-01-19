@@ -1,0 +1,67 @@
+version: 2
+
+exposures:
+  - name: compound_screening_dashboard
+    type: dashboard
+    maturity: high
+    description: |
+      Executive dashboard for compound library analysis and drug discovery pipeline.
+      Shows drug-likeness distributions, screening progress, and portfolio metrics.
+    depends_on:
+      - ref('mart_compound_analysis')
+      - ref('int_compound_properties')
+    owner:
+      name: LifeArc Data Team
+      email: data-team@lifearc.org
+
+  - name: clinical_trial_performance
+    type: dashboard
+    maturity: high
+    description: |
+      Clinical operations dashboard tracking trial efficacy, patient outcomes,
+      and response rates across active trials.
+    depends_on:
+      - ref('mart_trial_efficacy')
+      - ref('int_trial_patient_outcomes')
+    owner:
+      name: LifeArc Clinical Team
+      email: clinical-ops@lifearc.org
+
+  - name: genomics_research_portal
+    type: application
+    maturity: medium
+    description: |
+      Internal research portal for gene sequence analysis and target identification.
+      Used by research scientists to explore genomic data.
+    depends_on:
+      - ref('mart_gene_analysis')
+      - ref('stg_gene_sequences')
+    owner:
+      name: LifeArc Research Team
+      email: research@lifearc.org
+
+  - name: ml_feature_pipeline
+    type: ml
+    maturity: medium
+    description: |
+      Machine learning feature store for drug discovery models.
+      Compound properties feed into ADMET prediction models.
+    depends_on:
+      - ref('int_compound_properties')
+      - ref('mart_compound_analysis')
+    owner:
+      name: LifeArc ML Team
+      email: ml-team@lifearc.org
+
+  - name: regulatory_reporting
+    type: analysis
+    maturity: high
+    description: |
+      Regulatory compliance reports for FDA/EMA submissions.
+      Clinical trial outcomes and safety data exports.
+    depends_on:
+      - ref('mart_trial_efficacy')
+      - source('clinical_data', 'clinical_trial_results')
+    owner:
+      name: LifeArc Regulatory Affairs
+      email: regulatory@lifearc.org
