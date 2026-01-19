@@ -1,0 +1,6 @@
+category,logp_max,logp_min,tpsa_max,h_donors_max,h_acceptors_max,mw_max,description
+drug_like,5,-0.4,140,5,10,500,Lipinski Rule of Five compliant - good oral bioavailability
+lead_like,3.5,0,90,3,6,350,Optimized for lead optimization - room for structural modifications
+fragment,3,0,60,3,3,300,Fragment-based drug design starting points
+beyond_ro5,7,-2,200,6,15,800,Beyond Rule of Five - for complex targets like protein-protein interactions
+cns_penetrant,3,1,90,2,5,450,Blood-brain barrier penetration optimized

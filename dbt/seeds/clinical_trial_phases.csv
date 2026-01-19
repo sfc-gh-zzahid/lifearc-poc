@@ -1,0 +1,6 @@
+phase,phase_name,description,typical_duration_months,min_patients,regulatory_focus
+PHASE_I,Phase I,Initial safety testing in small groups of healthy volunteers,12,20,Safety and dosage
+PHASE_II,Phase II,Efficacy testing in patients with target condition,24,100,Effectiveness and side effects
+PHASE_III,Phase III,Large-scale randomized controlled trials,36,1000,Confirm effectiveness and monitor adverse reactions
+PHASE_IV,Phase IV,Post-market surveillance after approval,0,10000,Long-term safety monitoring
+PRECLINICAL,Preclinical,Laboratory and animal testing before human trials,24,0,Toxicity and pharmacokinetics

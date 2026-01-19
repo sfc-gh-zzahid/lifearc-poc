@@ -1,0 +1,8 @@
+gene_type,code,description,typical_length_bp,protein_coding
+protein_coding,PC,Genes that encode proteins,1000-100000,TRUE
+lncRNA,LNC,Long non-coding RNA genes,200-100000,FALSE
+miRNA,MIR,MicroRNA genes involved in gene regulation,18-25,FALSE
+pseudogene,PSG,Non-functional copies of genes,varies,FALSE
+rRNA,RRN,Ribosomal RNA genes,120-5000,FALSE
+tRNA,TRN,Transfer RNA genes,70-90,FALSE
+snRNA,SNR,Small nuclear RNA genes,100-300,FALSE
