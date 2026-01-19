@@ -1,0 +1,43 @@
+version: 2
+
+seeds:
+  - name: clinical_trial_phases
+    description: "Reference data for clinical trial phases and typical durations"
+    columns:
+      - name: phase
+        description: "Phase code (e.g., PHASE_I, PHASE_II)"
+        tests:
+          - unique
+          - not_null
+      - name: phase_name
+        description: "Human-readable phase name"
+      - name: typical_duration_months
+        description: "Expected duration in months (0 for ongoing)"
+      - name: min_patients
+        description: "Minimum typical patient enrollment"
+        
+  - name: drug_likeness_thresholds
+    description: "Lipinski Rule of Five and related drug-likeness criteria"
+    columns:
+      - name: category
+        description: "Drug-likeness category (drug_like, lead_like, fragment, etc.)"
+        tests:
+          - unique
+          - not_null
+      - name: logp_max
+        description: "Maximum LogP threshold"
+      - name: tpsa_max
+        description: "Maximum Topological Polar Surface Area"
+        
+  - name: gene_types
+    description: "Reference classification for gene types"
+    columns:
+      - name: gene_type
+        description: "Gene type classification"
+        tests:
+          - unique
+          - not_null
+      - name: code
+        description: "Short code for the gene type"
+      - name: protein_coding
+        description: "Whether this gene type encodes proteins"

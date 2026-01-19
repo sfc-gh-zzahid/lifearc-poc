@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: int_compound_properties
+    description: "Enriched compound data with drug-likeness assessments (Silver layer)"
+    columns:
+      - name: compound_id
+        description: "Primary key - links to stg_compounds"
+        tests:
+          - unique
+          - not_null
+      - name: drug_likeness
+        description: "Lipinski Rule of Five classification"
+        tests:
+          - accepted_values:
+              values: ['drug_like', 'borderline', 'non_drug_like']
+      - name: predicted_absorption
+        description: "Oral absorption prediction based on TPSA"
+        tests:
+          - accepted_values:
+              values: ['high', 'moderate', 'low']
+      - name: bbb_penetration
+        description: "Blood-brain barrier penetration likelihood"
+        tests:
+          - accepted_values:
+              values: ['likely', 'unlikely']
+
+  - name: int_trial_patient_outcomes
+    description: "Patient-level clinical trial outcomes with aggregations (Silver layer)"
+    columns:
+      - name: result_id
+        description: "Primary key - links to clinical trial results"
+        tests:
+          - unique
+          - not_null
+      - name: trial_id
+        description: "Foreign key to clinical trials"
+        tests:
+          - not_null
+      - name: patient_id
+        description: "Anonymized patient identifier"
+        tests:
+          - not_null
