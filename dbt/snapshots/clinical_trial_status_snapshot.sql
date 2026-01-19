@@ -14,14 +14,15 @@
 }}
 
 -- Track status changes for clinical trials
+-- Extract fields from PROTOCOL_DATA JSON column
 SELECT 
     trial_id,
-    title AS trial_title,
-    phase,
-    status,
-    sponsor,
-    indication,
-    start_date,
+    protocol_data:title::STRING AS trial_title,
+    protocol_data:phase::STRING AS phase,
+    protocol_data:status::STRING AS status,
+    protocol_data:sponsor::STRING AS sponsor,
+    protocol_data:indication::STRING AS indication,
+    created_at,
     CURRENT_TIMESTAMP() AS _snapshot_check_time
 FROM {{ source('unstructured_data', 'clinical_trials') }}
 
