@@ -1,11 +1,12 @@
 # dbt packages for LifeArc POC
-# Run `dbt deps` to install these packages
+# Uncomment and run `dbt deps` to install these packages
+# Requires external access integration for network access
 
-packages:
-  - package: dbt-labs/dbt_utils
-    version: [">=1.0.0", "<2.0.0"]
-    
-  # Uncomment for additional functionality:
+packages: []
+
+  # Recommended packages (uncomment to use):
+  # - package: dbt-labs/dbt_utils
+  #   version: [">=1.0.0", "<2.0.0"]
   # - package: calogica/dbt_expectations
   #   version: [">=0.10.0", "<0.11.0"]
   # - package: dbt-labs/codegen
