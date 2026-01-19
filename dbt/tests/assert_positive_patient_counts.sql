@@ -3,5 +3,5 @@
 
 SELECT *
 FROM {{ ref('mart_trial_efficacy') }}
-WHERE total_patients <= 0
-   OR total_patients IS NULL
+WHERE patient_count <= 0
+   OR patient_count IS NULL
