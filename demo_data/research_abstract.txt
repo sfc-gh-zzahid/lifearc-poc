@@ -1,0 +1,40 @@
+RESEARCH ABSTRACT
+
+Title: Discovery and Characterization of Novel Small Molecule Inhibitors of BRCA1-Associated DNA Repair Pathways
+
+Authors: Dr. Sarah Mitchell, Dr. James Chen, Dr. Emma Roberts
+Institution: LifeArc Therapeutic Discovery Unit, Cambridge, UK
+Date: November 2024
+
+BACKGROUND
+Defects in DNA damage response (DDR) pathways, particularly those involving BRCA1 and BRCA2, are associated with increased cancer susceptibility and sensitivity to certain therapeutics. While PARP inhibitors have shown clinical success in BRCA-mutant cancers, resistance mechanisms frequently emerge. This study aimed to identify novel targets within the BRCA1-associated repair pathway that could be exploited therapeutically.
+
+METHODS
+We conducted a high-throughput phenotypic screen of 250,000 compounds using isogenic BRCA1-wild type and BRCA1-deficient cell lines. Hit compounds were validated through secondary assays including:
+- Cell viability assays across multiple cancer cell lines
+- DNA damage response markers (γH2AX, 53BP1 foci)
+- Cell cycle analysis
+- Target identification via chemoproteomics
+
+RESULTS
+From our primary screen, we identified 847 initial hits (0.34% hit rate). After stringent validation, 12 lead compounds emerged with:
+- Selective cytotoxicity in BRCA1-mutant cells (>10-fold selectivity)
+- IC50 values ranging from 50nM to 500nM
+- Novel mechanism of action distinct from PARP inhibition
+- Acceptable ADMET profiles for further optimization
+
+Target identification revealed three compounds (LA-DDR-001, LA-DDR-007, LA-DDR-012) engage a previously uncharacterized member of the RAD51 paralog family. Genetic knockdown of this target phenocopied compound treatment.
+
+CONCLUSIONS
+We have identified a novel druggable target within the homologous recombination pathway that demonstrates synthetic lethality with BRCA1 deficiency. Lead optimization is ongoing, with LA-DDR-012 nominated as development candidate based on:
+- Best-in-class potency (IC50 = 52nM)
+- >100-fold selectivity over BRCA1-WT cells
+- Favorable pharmacokinetic profile in rodent studies
+- No significant CYP450 inhibition
+
+NEXT STEPS
+- Complete IND-enabling studies by Q2 2025
+- First-in-human study planned for Q4 2025
+- Biomarker development for patient selection
+
+Keywords: DNA damage response, synthetic lethality, BRCA1, targeted therapy, oncology

@@ -1,0 +1,38 @@
+# LifeArc POC - DBT Profiles Example
+# Copy this file to ~/.dbt/profiles.yml and update credentials
+
+lifearc_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      
+      # Option 1: Password authentication
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      
+      # Option 2: Key-pair authentication (comment out password above)
+      # private_key_path: ~/.ssh/snowflake_rsa_key.p8
+      # private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE') }}"
+      
+      role: ACCOUNTADMIN
+      database: LIFEARC_POC
+      warehouse: DEMO_WH
+      schema: PUBLIC
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: 'dbt_lifearc'
+
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      private_key_path: ~/.ssh/snowflake_rsa_key.p8
+      role: LIFEARC_ETL_SERVICE_ROLE
+      database: LIFEARC_POC
+      warehouse: DEMO_WH
+      schema: PUBLIC
+      threads: 8
+      client_session_keep_alive: False
+      query_tag: 'dbt_lifearc_prod'

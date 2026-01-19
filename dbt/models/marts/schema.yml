@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: mart_trial_efficacy
+    description: "Analytics-ready trial efficacy summary (Gold layer)"
+    columns:
+      - name: trial_id
+        description: "Trial identifier"
+        tests:
+          - not_null
+      - name: treatment_arm
+        description: "Treatment arm within trial"
+      - name: objective_response_rate
+        description: "ORR percentage (CR + PR)"
+      - name: median_pfs_months
+        description: "Median PFS in months"
+      - name: median_os_months
+        description: "Median OS in months"
+
+  - name: mart_compound_analysis
+    description: "Analytics-ready compound library summary (Gold layer)"
+    columns:
+      - name: drug_likeness
+        description: "Drug-likeness category"
+        tests:
+          - accepted_values:
+              values: ['drug_like', 'borderline', 'non_drug_like']
+      - name: compound_count
+        description: "Number of compounds in category"
+
+  - name: mart_gene_analysis
+    description: "Analytics-ready gene sequence summary (Gold layer)"
+    columns:
+      - name: gene_name
+        description: "Gene identifier"
+        tests:
+          - not_null
+      - name: avg_gc_content
+        description: "Average GC content percentage"

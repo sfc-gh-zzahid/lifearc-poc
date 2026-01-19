@@ -1,0 +1,55 @@
+{
+  "study_id": "LA-2024-001",
+  "title": "Phase II Clinical Trial - Novel KRAS G12C Inhibitor in NSCLC",
+  "sponsor": "LifeArc Research",
+  "status": "Active",
+  "start_date": "2024-03-15",
+  "phase": "Phase II",
+  "indication": "Non-Small Cell Lung Cancer",
+  "target": "KRAS G12C mutation",
+  "primary_endpoints": [
+    "Objective Response Rate (ORR)",
+    "Duration of Response (DoR)"
+  ],
+  "secondary_endpoints": [
+    "Progression-Free Survival (PFS)",
+    "Overall Survival (OS)",
+    "Safety and Tolerability"
+  ],
+  "enrollment": {
+    "target": 120,
+    "current": 87,
+    "sites": 12
+  },
+  "inclusion_criteria": [
+    "Age >= 18 years",
+    "Histologically confirmed NSCLC",
+    "Documented KRAS G12C mutation",
+    "ECOG Performance Status 0-1",
+    "Measurable disease per RECIST v1.1"
+  ],
+  "exclusion_criteria": [
+    "Prior treatment with KRAS G12C inhibitor",
+    "Symptomatic brain metastases",
+    "Significant cardiovascular disease"
+  ],
+  "arms": [
+    {
+      "name": "Treatment Arm A",
+      "intervention": "LA-KRAS-001 200mg BID",
+      "patients": 60
+    },
+    {
+      "name": "Treatment Arm B", 
+      "intervention": "LA-KRAS-001 400mg QD",
+      "patients": 60
+    }
+  ],
+  "biomarkers": [
+    "ctDNA KRAS G12C VAF",
+    "PD-L1 expression",
+    "TMB score"
+  ],
+  "data_cutoff_date": "2024-12-31",
+  "safety_monitoring": "Independent Data Monitoring Committee"
+}

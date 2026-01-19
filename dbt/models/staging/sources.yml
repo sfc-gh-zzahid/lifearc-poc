@@ -1,0 +1,87 @@
+version: 2
+
+sources:
+  - name: unstructured_data
+    description: "Raw unstructured data tables"
+    database: LIFEARC_POC
+    schema: UNSTRUCTURED_DATA
+    tables:
+      - name: gene_sequences
+        description: "Raw gene sequence data"
+        columns:
+          - name: sequence_id
+            description: "Unique identifier for the sequence"
+            tests:
+              - unique
+              - not_null
+          - name: gene_name
+            description: "Name of the gene"
+          - name: sequence
+            description: "DNA/RNA sequence"
+            tests:
+              - not_null
+          - name: gc_content
+            description: "GC content percentage"
+
+      - name: compound_library
+        description: "Raw compound library data"
+        columns:
+          - name: compound_id
+            description: "Unique identifier for the compound"
+            tests:
+              - unique
+              - not_null
+          - name: smiles
+            description: "SMILES notation for the compound"
+
+      - name: clinical_trials
+        description: "Clinical trial protocol data (JSON)"
+        columns:
+          - name: trial_id
+            description: "Unique trial identifier"
+            tests:
+              - unique
+              - not_null
+
+      - name: research_documents
+        description: "Research documents and abstracts"
+        columns:
+          - name: doc_id
+            description: "Document identifier"
+            tests:
+              - unique
+              - not_null
+
+  - name: clinical_data
+    description: "Clinical trial data tables"
+    database: LIFEARC_POC
+    schema: DATA_SHARING
+    tables:
+      - name: clinical_trial_results
+        description: "Patient-level clinical trial results"
+        columns:
+          - name: result_id
+            description: "Unique result identifier"
+            tests:
+              - unique
+              - not_null
+          - name: trial_id
+            description: "Trial identifier"
+            tests:
+              - not_null
+          - name: patient_id
+            description: "Patient identifier (PII)"
+          - name: site_id
+            description: "Clinical site identifier"
+          - name: pfs_months
+            description: "Progression-free survival in months"
+          - name: os_months
+            description: "Overall survival in months"
+
+  - name: governance
+    description: "Governance and access control tables"
+    database: LIFEARC_POC
+    schema: GOVERNANCE
+    tables:
+      - name: site_access_mapping
+        description: "Role to site access mappings"

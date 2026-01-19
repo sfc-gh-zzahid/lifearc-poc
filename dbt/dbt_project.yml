@@ -1,0 +1,66 @@
+# LifeArc POC - DBT Project Configuration
+# Bronze → Silver → Gold Data Pipeline
+
+name: 'lifearc_poc'
+version: '1.0.0'
+config-version: 2
+
+# Connection profile (defined in ~/.dbt/profiles.yml)
+profile: 'lifearc_snowflake'
+
+# Project paths
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+asset-paths: ["assets"]
+
+# Build artifacts
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Model configurations
+models:
+  lifearc_poc:
+    # Staging (Bronze) - raw data cleaned
+    staging:
+      +schema: bronze
+      +materialized: view
+      +tags: ['bronze', 'staging']
+    
+    # Intermediate (Silver) - business logic applied
+    intermediate:
+      +schema: silver
+      +materialized: table
+      +tags: ['silver', 'intermediate']
+    
+    # Marts (Gold) - analytics-ready
+    marts:
+      +schema: gold
+      +materialized: table
+      +tags: ['gold', 'marts']
+
+# Seed configurations
+seeds:
+  lifearc_poc:
+    +schema: bronze
+
+# Variables for configuration
+vars:
+  # Date filters for incremental models
+  start_date: '2024-01-01'
+  
+  # Schema mappings
+  raw_schema: 'UNSTRUCTURED_DATA'
+  clinical_schema: 'DATA_SHARING'
+  governance_schema: 'GOVERNANCE'
+
+# Quoting (Snowflake defaults)
+quoting:
+  database: false
+  schema: false
+  identifier: false

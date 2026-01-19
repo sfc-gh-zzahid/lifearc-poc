@@ -1,0 +1,13 @@
+# LifeArc DBT Profile for Snowflake Native Execution
+lifearc_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'SFSEEUROPE-DEMO453') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', 'ZZAHID') }}"
+      role: ACCOUNTADMIN
+      database: LIFEARC_POC
+      warehouse: DEMO_WH
+      schema: PUBLIC
+      threads: 4

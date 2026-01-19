@@ -1,0 +1,2172 @@
+[0m16:23:23.313271 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108ed7cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109649d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1096498e0>]}
+
+
+============================== 16:23:23.317488 | 3cb6426d-7779-46ab-a1c5-6d225f758fc4 ==============================
+[0m16:23:23.317488 [info ] [MainThread]: Running with dbt=1.11.2
+[0m16:23:23.317998 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'indirect_selection': 'eager', 'quiet': 'False', 'introspect': 'True', 'use_colors': 'True', 'write_json': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'invocation_command': 'dbt debug', 'printer_width': '80', 'log_path': '/Users/zzahid/Documents/GitHub/LifeArc/dbt/logs', 'profiles_dir': '/Users/zzahid/.dbt', 'version_check': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'fail_fast': 'False', 'empty': 'None', 'no_print': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m16:23:23.332989 [info ] [MainThread]: dbt version: 1.11.2
+[0m16:23:23.333338 [info ] [MainThread]: python version: 3.12.4
+[0m16:23:23.333529 [info ] [MainThread]: python path: /opt/miniconda3/bin/python
+[0m16:23:23.333700 [info ] [MainThread]: os info: macOS-26.2-arm64-arm-64bit
+[0m16:23:24.999645 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:23:25.000041 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:23:25.000217 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m16:23:25.048822 [info ] [MainThread]: Using profiles dir at /Users/zzahid/.dbt
+[0m16:23:25.049166 [info ] [MainThread]: Using profiles.yml file at /Users/zzahid/.dbt/profiles.yml
+[0m16:23:25.049327 [info ] [MainThread]: Using dbt_project.yml file at /Users/zzahid/Documents/GitHub/LifeArc/dbt/dbt_project.yml
+[0m16:23:25.049953 [info ] [MainThread]: adapter type: snowflake
+[0m16:23:25.050294 [info ] [MainThread]: adapter version: 1.11.1
+[0m16:23:25.118497 [info ] [MainThread]: Configuration:
+[0m16:23:25.118838 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:23:25.118988 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m16:23:25.119120 [info ] [MainThread]: Required dependencies:
+[0m16:23:25.119441 [debug] [MainThread]: Executing "git --help"
+[0m16:23:25.148252 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:23:25.149043 [debug] [MainThread]: STDERR: "b''"
+[0m16:23:25.149297 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:23:25.149761 [info ] [MainThread]: Connection:
+[0m16:23:25.150028 [info ] [MainThread]:   account: SFSEEUROPE-DEMO453
+[0m16:23:25.150185 [info ] [MainThread]:   user: ZZAHID
+[0m16:23:25.150323 [info ] [MainThread]:   database: LIFEARC_POC
+[0m16:23:25.150451 [info ] [MainThread]:   warehouse: DEMO_WH
+[0m16:23:25.150574 [info ] [MainThread]:   role: ACCOUNTADMIN
+[0m16:23:25.150694 [info ] [MainThread]:   schema: PUBLIC
+[0m16:23:25.150814 [info ] [MainThread]:   authenticator: snowflake_jwt
+[0m16:23:25.150933 [info ] [MainThread]:   oauth_client_id: None
+[0m16:23:25.151043 [info ] [MainThread]:   query_tag: dbt_lifearc
+[0m16:23:25.151157 [info ] [MainThread]:   client_session_keep_alive: False
+[0m16:23:25.151271 [info ] [MainThread]:   host: None
+[0m16:23:25.151382 [info ] [MainThread]:   port: None
+[0m16:23:25.151492 [info ] [MainThread]:   proxy_host: None
+[0m16:23:25.151601 [info ] [MainThread]:   proxy_port: None
+[0m16:23:25.151722 [info ] [MainThread]:   protocol: None
+[0m16:23:25.151835 [info ] [MainThread]:   connect_retries: 1
+[0m16:23:25.151945 [info ] [MainThread]:   connect_timeout: None
+[0m16:23:25.152052 [info ] [MainThread]:   retry_on_database_errors: False
+[0m16:23:25.152162 [info ] [MainThread]:   retry_all: False
+[0m16:23:25.152270 [info ] [MainThread]:   insecure_mode: False
+[0m16:23:25.152376 [info ] [MainThread]:   reuse_connections: True
+[0m16:23:25.152487 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m16:23:25.152599 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m16:23:25.152979 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m16:23:25.245822 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m16:23:25.325856 [debug] [MainThread]: Using snowflake connection "debug"
+[0m16:23:25.326212 [debug] [MainThread]: On debug: select 1 as id
+[0m16:23:25.326408 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:23:26.669517 [debug] [MainThread]: SQL status: SUCCESS 1 in 1.343 seconds
+[0m16:23:26.671510 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m16:23:26.671846 [info ] [MainThread]: [32mAll checks passed![0m
+[0m16:23:26.691290 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 3.633948, "process_in_blocks": "0", "process_kernel_time": 2.143354, "process_mem_max_rss": "213876736", "process_out_blocks": "0", "process_user_time": 2.659113}
+[0m16:23:26.691749 [debug] [MainThread]: Command `dbt debug` succeeded at 16:23:26.691679 after 3.63 seconds
+[0m16:23:26.691958 [debug] [MainThread]: Connection 'debug' was left open.
+[0m16:23:26.692113 [debug] [MainThread]: On debug: Close
+[0m16:23:27.089939 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x14fceadb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x14fe5b5f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x14fe5bc50>]}
+[0m16:23:27.091416 [debug] [MainThread]: Flushing usage events
+[0m16:23:27.650546 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:23:34.666102 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113b11fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11464a330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114649f40>]}
+
+
+============================== 16:23:34.669352 | 0d42f18c-da6d-49a5-92df-a86d8fe8d948 ==============================
+[0m16:23:34.669352 [info ] [MainThread]: Running with dbt=1.11.2
+[0m16:23:34.669763 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'log_format': 'default', 'profiles_dir': '/Users/zzahid/.dbt', 'static_parser': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'empty': 'False', 'invocation_command': 'dbt build', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'partial_parse': 'True', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'printer_width': '80', 'no_print': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'target_path': 'None', 'quiet': 'False', 'introspect': 'True', 'warn_error': 'None', 'log_path': '/Users/zzahid/Documents/GitHub/LifeArc/dbt/logs'}
+[0m16:23:35.447473 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:23:35.447847 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:23:35.448020 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m16:23:35.646366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121413860>]}
+[0m16:23:35.692003 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1163b2d50>]}
+[0m16:23:35.692897 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m16:23:35.770328 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m16:23:35.771257 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:23:35.771592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12710a780>]}
+[0m16:23:36.503539 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'stg_gene_sequences' in package 'lifearc_poc' (models/staging/schema.yml).
+Arguments to generic tests should be nested under the `arguments` property.
+[0m16:23:36.505282 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1279afdd0>]}
+[0m16:23:36.669783 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- seeds.lifearc_poc
+[0m16:23:36.675289 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127d490d0>]}
+[0m16:23:36.726507 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:23:36.728881 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:23:36.763689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127990350>]}
+[0m16:23:36.764085 [info ] [MainThread]: Found 8 models, 24 data tests, 6 sources, 522 macros
+[0m16:23:36.766548 [info ] [MainThread]: 
+[0m16:23:36.766820 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:23:36.766971 [info ] [MainThread]: 
+[0m16:23:36.767232 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m16:23:36.769687 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:23:36.770295 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:23:36.776816 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:23:36.891021 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:23:36.891356 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:23:36.891692 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:23:36.891902 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:23:36.892071 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:23:36.892328 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:23:36.892657 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:23:36.892937 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:23:36.893226 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:23:38.314136 [debug] [ThreadPool]: SQL status: SUCCESS 13 in 1.421 seconds
+[0m16:23:38.338945 [debug] [ThreadPool]: SQL status: SUCCESS 13 in 1.446 seconds
+[0m16:23:38.714124 [debug] [ThreadPool]: SQL status: SUCCESS 13 in 1.821 seconds
+[0m16:23:38.715480 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now create_LIFEARC_POC_PUBLIC_gold)
+[0m16:23:38.715823 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now create_LIFEARC_POC_PUBLIC_bronze)
+[0m16:23:38.716074 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now create_LIFEARC_POC_PUBLIC_silver)
+[0m16:23:38.716520 [debug] [ThreadPool]: Creating schema "database: "LIFEARC_POC"
+schema: "PUBLIC_gold"
+"
+[0m16:23:38.716794 [debug] [ThreadPool]: Creating schema "database: "LIFEARC_POC"
+schema: "PUBLIC_bronze"
+"
+[0m16:23:38.717015 [debug] [ThreadPool]: Creating schema "database: "LIFEARC_POC"
+schema: "PUBLIC_silver"
+"
+[0m16:23:38.719763 [debug] [ThreadPool]: Using snowflake connection "create_LIFEARC_POC_PUBLIC_gold"
+[0m16:23:38.721815 [debug] [ThreadPool]: Using snowflake connection "create_LIFEARC_POC_PUBLIC_bronze"
+[0m16:23:38.723146 [debug] [ThreadPool]: Using snowflake connection "create_LIFEARC_POC_PUBLIC_silver"
+[0m16:23:38.723370 [debug] [ThreadPool]: On create_LIFEARC_POC_PUBLIC_gold: create schema if not exists LIFEARC_POC.PUBLIC_gold
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "create_LIFEARC_POC_PUBLIC_gold"} */
+[0m16:23:38.723585 [debug] [ThreadPool]: On create_LIFEARC_POC_PUBLIC_bronze: create schema if not exists LIFEARC_POC.PUBLIC_bronze
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "create_LIFEARC_POC_PUBLIC_bronze"} */
+[0m16:23:38.723818 [debug] [ThreadPool]: On create_LIFEARC_POC_PUBLIC_silver: create schema if not exists LIFEARC_POC.PUBLIC_silver
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "create_LIFEARC_POC_PUBLIC_silver"} */
+[0m16:23:38.985280 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.258 seconds
+[0m16:23:39.014108 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.289 seconds
+[0m16:23:39.015808 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.292 seconds
+[0m16:23:39.017256 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_LIFEARC_POC_PUBLIC_gold, now list_LIFEARC_POC_PUBLIC_gold)
+[0m16:23:39.017566 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_LIFEARC_POC_PUBLIC_bronze, now list_LIFEARC_POC_PUBLIC_bronze)
+[0m16:23:39.017866 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_LIFEARC_POC_PUBLIC_silver, now list_LIFEARC_POC_PUBLIC_silver)
+[0m16:23:39.029463 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_gold"
+[0m16:23:39.031182 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_bronze"
+[0m16:23:39.032719 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_silver"
+[0m16:23:39.033094 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_gold: show objects in LIFEARC_POC.PUBLIC_gold
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_gold"} */;
+[0m16:23:39.033459 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_bronze: show objects in LIFEARC_POC.PUBLIC_bronze
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_bronze"} */;
+[0m16:23:39.033830 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_silver: show objects in LIFEARC_POC.PUBLIC_silver
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_silver"} */;
+[0m16:23:39.305460 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.271 seconds
+[0m16:23:39.341102 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.307 seconds
+[0m16:23:39.342830 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.309 seconds
+[0m16:23:39.344161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127d00ec0>]}
+[0m16:23:39.347551 [debug] [Thread-2 (]: Began running node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e
+[0m16:23:39.347822 [debug] [Thread-3 (]: Began running node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01
+[0m16:23:39.348285 [debug] [Thread-4 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436
+[0m16:23:39.348083 [info ] [Thread-2 (]: 1 of 32 START test source_not_null_clinical_data_clinical_trial_results_result_id  [RUN]
+[0m16:23:39.348645 [debug] [Thread-5 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:23:39.348933 [info ] [Thread-3 (]: 2 of 32 START test source_not_null_clinical_data_clinical_trial_results_trial_id  [RUN]
+[0m16:23:39.349201 [info ] [Thread-4 (]: 3 of 32 START test source_not_null_unstructured_data_clinical_trials_trial_id .. [RUN]
+[0m16:23:39.349504 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_gold, now test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e)
+[0m16:23:39.349804 [info ] [Thread-5 (]: 4 of 32 START test source_not_null_unstructured_data_compound_library_compound_id  [RUN]
+[0m16:23:39.350060 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_bronze, now test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01)
+[0m16:23:39.350366 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_silver, now test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436)
+[0m16:23:39.350660 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e
+[0m16:23:39.351280 [debug] [Thread-5 (]: Acquiring new snowflake connection 'test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3'
+[0m16:23:39.351546 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01
+[0m16:23:39.351843 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436
+[0m16:23:39.358797 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e"
+[0m16:23:39.359185 [debug] [Thread-5 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:23:39.361555 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01"
+[0m16:23:39.363829 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436"
+[0m16:23:39.366939 [debug] [Thread-5 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:23:39.368942 [debug] [Thread-5 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:23:39.369359 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436
+[0m16:23:39.375953 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e
+[0m16:23:39.380920 [debug] [Thread-5 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:23:39.381201 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01
+[0m16:23:39.382739 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436"
+[0m16:23:39.384089 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e"
+[0m16:23:39.385889 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01"
+[0m16:23:39.387751 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e"
+[0m16:23:39.388195 [debug] [Thread-2 (]: On test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select result_id
+from LIFEARC_POC.DATA_SHARING.clinical_trial_results
+where result_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e"} */
+[0m16:23:39.388694 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01"
+[0m16:23:39.389070 [debug] [Thread-5 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:23:39.389439 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436"
+[0m16:23:39.390098 [debug] [Thread-3 (]: On test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trial_id
+from LIFEARC_POC.DATA_SHARING.clinical_trial_results
+where trial_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01"} */
+[0m16:23:39.390379 [debug] [Thread-5 (]: On test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select compound_id
+from LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+where compound_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"} */
+[0m16:23:39.390938 [debug] [Thread-4 (]: On test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trial_id
+from LIFEARC_POC.UNSTRUCTURED_DATA.clinical_trials
+where trial_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436"} */
+[0m16:23:39.391841 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:23:39.679957 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.289 seconds
+[0m16:23:39.686864 [info ] [Thread-3 (]: 2 of 32 PASS source_not_null_clinical_data_clinical_trial_results_trial_id ..... [[32mPASS[0m in 0.34s]
+[0m16:23:39.687390 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01
+[0m16:23:39.687720 [debug] [Thread-3 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c
+[0m16:23:39.687956 [info ] [Thread-3 (]: 5 of 32 START test source_not_null_unstructured_data_gene_sequences_sequence ... [RUN]
+[0m16:23:39.688276 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_trial_id.aa0e0f3d01, now test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c)
+[0m16:23:39.688454 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c
+[0m16:23:39.690662 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c"
+[0m16:23:39.692843 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c
+[0m16:23:39.694541 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c"
+[0m16:23:39.696419 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c"
+[0m16:23:39.696733 [debug] [Thread-3 (]: On test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sequence
+from LIFEARC_POC.UNSTRUCTURED_DATA.gene_sequences
+where sequence is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c"} */
+[0m16:23:39.923377 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.531 seconds
+[0m16:23:39.924950 [info ] [Thread-4 (]: 3 of 32 PASS source_not_null_unstructured_data_clinical_trials_trial_id ........ [[32mPASS[0m in 0.57s]
+[0m16:23:39.925337 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436
+[0m16:23:39.925543 [debug] [Thread-4 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41
+[0m16:23:39.925905 [info ] [Thread-4 (]: 6 of 32 START test source_not_null_unstructured_data_gene_sequences_sequence_id  [RUN]
+[0m16:23:39.926281 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_clinical_trials_trial_id.7f6c5cc436, now test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41)
+[0m16:23:39.926500 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41
+[0m16:23:39.929309 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41"
+[0m16:23:39.931767 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41
+[0m16:23:39.933206 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41"
+[0m16:23:39.937781 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41"
+[0m16:23:39.938069 [debug] [Thread-4 (]: On test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sequence_id
+from LIFEARC_POC.UNSTRUCTURED_DATA.gene_sequences
+where sequence_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41"} */
+[0m16:23:39.973557 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.276 seconds
+[0m16:23:39.975077 [info ] [Thread-3 (]: 5 of 32 PASS source_not_null_unstructured_data_gene_sequences_sequence ......... [[32mPASS[0m in 0.29s]
+[0m16:23:39.975425 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c
+[0m16:23:39.975637 [debug] [Thread-3 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300
+[0m16:23:39.975950 [info ] [Thread-3 (]: 7 of 32 START test source_not_null_unstructured_data_research_documents_doc_id . [RUN]
+[0m16:23:39.976404 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence.32783f0b6c, now test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300)
+[0m16:23:39.976758 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300
+[0m16:23:39.979493 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300"
+[0m16:23:39.981183 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300
+[0m16:23:39.982938 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300"
+[0m16:23:39.986521 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300"
+[0m16:23:39.986839 [debug] [Thread-3 (]: On test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select doc_id
+from LIFEARC_POC.UNSTRUCTURED_DATA.research_documents
+where doc_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300"} */
+[0m16:23:40.013321 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.624 seconds
+[0m16:23:40.014989 [info ] [Thread-2 (]: 1 of 32 PASS source_not_null_clinical_data_clinical_trial_results_result_id .... [[32mPASS[0m in 0.67s]
+[0m16:23:40.015370 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e
+[0m16:23:40.015644 [debug] [Thread-2 (]: Began running node test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6
+[0m16:23:40.015871 [info ] [Thread-2 (]: 8 of 32 START test source_unique_clinical_data_clinical_trial_results_result_id  [RUN]
+[0m16:23:40.016266 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_clinical_data_clinical_trial_results_result_id.0dee9cf45e, now test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6)
+[0m16:23:40.016494 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6
+[0m16:23:40.019869 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6"
+[0m16:23:40.021744 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6
+[0m16:23:40.023043 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6"
+[0m16:23:40.024208 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6"
+[0m16:23:40.024410 [debug] [Thread-2 (]: On test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    result_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.DATA_SHARING.clinical_trial_results
+where result_id is not null
+group by result_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6"} */
+[0m16:23:40.158195 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.220 seconds
+[0m16:23:40.159828 [info ] [Thread-4 (]: 6 of 32 PASS source_not_null_unstructured_data_gene_sequences_sequence_id ...... [[32mPASS[0m in 0.23s]
+[0m16:23:40.160231 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41
+[0m16:23:40.160840 [debug] [Thread-4 (]: Began running node test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353
+[0m16:23:40.161287 [info ] [Thread-4 (]: 9 of 32 START test source_unique_unstructured_data_clinical_trials_trial_id .... [RUN]
+[0m16:23:40.162870 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_gene_sequences_sequence_id.d9f443ef41, now test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353)
+[0m16:23:40.163428 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353
+[0m16:23:40.168178 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353"
+[0m16:23:40.178176 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353
+[0m16:23:40.180085 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353"
+[0m16:23:40.181470 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353"
+[0m16:23:40.181759 [debug] [Thread-4 (]: On test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    trial_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.UNSTRUCTURED_DATA.clinical_trials
+where trial_id is not null
+group by trial_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353"} */
+[0m16:23:40.307208 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.320 seconds
+[0m16:23:40.308518 [info ] [Thread-3 (]: 7 of 32 PASS source_not_null_unstructured_data_research_documents_doc_id ....... [[32mPASS[0m in 0.33s]
+[0m16:23:40.308842 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300
+[0m16:23:40.309045 [debug] [Thread-3 (]: Began running node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:23:40.309267 [info ] [Thread-3 (]: 10 of 32 START test source_unique_unstructured_data_compound_library_compound_id  [RUN]
+[0m16:23:40.309490 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_research_documents_doc_id.34a4282300, now test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06)
+[0m16:23:40.309671 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:23:40.312193 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:23:40.313867 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:23:40.315580 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:23:40.319527 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:23:40.319885 [debug] [Thread-3 (]: On test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    compound_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+where compound_id is not null
+group by compound_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"} */
+[0m16:23:40.392827 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.368 seconds
+[0m16:23:40.394124 [info ] [Thread-2 (]: 8 of 32 PASS source_unique_clinical_data_clinical_trial_results_result_id ...... [[32mPASS[0m in 0.38s]
+[0m16:23:40.394444 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6
+[0m16:23:40.394650 [debug] [Thread-2 (]: Began running node test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6
+[0m16:23:40.395098 [info ] [Thread-2 (]: 11 of 32 START test source_unique_unstructured_data_gene_sequences_sequence_id . [RUN]
+[0m16:23:40.395518 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_clinical_data_clinical_trial_results_result_id.89a30138b6, now test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6)
+[0m16:23:40.395788 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6
+[0m16:23:40.398882 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6"
+[0m16:23:40.400255 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6
+[0m16:23:40.401898 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6"
+[0m16:23:40.404739 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6"
+[0m16:23:40.404950 [debug] [Thread-2 (]: On test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    sequence_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.UNSTRUCTURED_DATA.gene_sequences
+where sequence_id is not null
+group by sequence_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6"} */
+[0m16:23:40.456842 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.275 seconds
+[0m16:23:40.458291 [info ] [Thread-4 (]: 9 of 32 PASS source_unique_unstructured_data_clinical_trials_trial_id .......... [[32mPASS[0m in 0.30s]
+[0m16:23:40.458677 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353
+[0m16:23:40.458919 [debug] [Thread-4 (]: Began running node test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522
+[0m16:23:40.459245 [info ] [Thread-4 (]: 12 of 32 START test source_unique_unstructured_data_research_documents_doc_id .. [RUN]
+[0m16:23:40.459619 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_unstructured_data_clinical_trials_trial_id.022a523353, now test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522)
+[0m16:23:40.459814 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522
+[0m16:23:40.461933 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522"
+[0m16:23:40.463638 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522
+[0m16:23:40.465336 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522"
+[0m16:23:40.469843 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522"
+[0m16:23:40.470219 [debug] [Thread-4 (]: On test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    doc_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.UNSTRUCTURED_DATA.research_documents
+where doc_id is not null
+group by doc_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522"} */
+[0m16:23:40.591917 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.272 seconds
+[0m16:23:40.593774 [info ] [Thread-3 (]: 10 of 32 PASS source_unique_unstructured_data_compound_library_compound_id ..... [[32mPASS[0m in 0.28s]
+[0m16:23:40.594155 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:23:40.594372 [debug] [Thread-3 (]: Began running node model.lifearc_poc.stg_clinical_results
+[0m16:23:40.594842 [info ] [Thread-3 (]: 13 of 32 START sql view model PUBLIC_bronze.stg_clinical_results ............... [RUN]
+[0m16:23:40.595229 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06, now model.lifearc_poc.stg_clinical_results)
+[0m16:23:40.595515 [debug] [Thread-3 (]: Began compiling node model.lifearc_poc.stg_clinical_results
+[0m16:23:40.597791 [debug] [Thread-3 (]: Writing injected SQL for node "model.lifearc_poc.stg_clinical_results"
+[0m16:23:40.601741 [debug] [Thread-3 (]: Began executing node model.lifearc_poc.stg_clinical_results
+[0m16:23:40.616872 [debug] [Thread-3 (]: Writing runtime sql for node "model.lifearc_poc.stg_clinical_results"
+[0m16:23:40.617740 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.226 seconds
+[0m16:23:40.619274 [info ] [Thread-5 (]: 4 of 32 PASS source_not_null_unstructured_data_compound_library_compound_id .... [[32mPASS[0m in 1.27s]
+[0m16:23:40.619645 [debug] [Thread-5 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:23:40.620635 [debug] [Thread-3 (]: Using snowflake connection "model.lifearc_poc.stg_clinical_results"
+[0m16:23:40.620888 [debug] [Thread-5 (]: Began running node model.lifearc_poc.stg_compounds
+[0m16:23:40.621085 [debug] [Thread-3 (]: On model.lifearc_poc.stg_clinical_results: create or replace   view LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+  
+  
+  
+  
+  as (
+    -- Staging model: Clinical Trial Results (Bronze layer)
+-- Purpose: Clean and standardize raw clinical trial result data
+
+
+
+SELECT
+    result_id,
+    trial_id,
+    patient_id,
+    site_id,
+    TRIM(UPPER(cohort)) AS cohort,
+    TRIM(UPPER(treatment_arm)) AS treatment_arm,
+    TRIM(INITCAP(REPLACE(response_category, '_', ' '))) AS response_category,
+    pfs_months,
+    os_months,
+    adverse_events,
+    biomarker_status,
+    patient_age,
+    patient_sex,
+    created_at,
+    -- Derived fields
+    CASE 
+        WHEN response_category ILIKE '%complete%' THEN 'CR'
+        WHEN response_category ILIKE '%partial%' THEN 'PR'
+        WHEN response_category ILIKE '%stable%' THEN 'SD'
+        WHEN response_category ILIKE '%progressive%' THEN 'PD'
+        ELSE 'UNKNOWN'
+    END AS response_code,
+    CASE 
+        WHEN adverse_events ILIKE '%grade3%' OR adverse_events ILIKE '%grade4%' THEN 'severe'
+        WHEN adverse_events ILIKE '%grade2%' THEN 'moderate'
+        WHEN adverse_events ILIKE '%grade1%' THEN 'mild'
+        ELSE 'none'
+    END AS adverse_severity,
+    -- Age grouping (for anonymization)
+    FLOOR(patient_age / 10) * 10 AS age_decade,
+    -- Data quality
+    CASE WHEN pfs_months IS NOT NULL AND os_months IS NOT NULL THEN TRUE ELSE FALSE END AS has_survival_data
+FROM LIFEARC_POC.DATA_SHARING.clinical_trial_results
+WHERE result_id IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.stg_clinical_results"} */;
+[0m16:23:40.621422 [info ] [Thread-5 (]: 14 of 32 START sql view model PUBLIC_bronze.stg_compounds ...................... [RUN]
+[0m16:23:40.621996 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3, now model.lifearc_poc.stg_compounds)
+[0m16:23:40.622164 [debug] [Thread-5 (]: Began compiling node model.lifearc_poc.stg_compounds
+[0m16:23:40.623852 [debug] [Thread-5 (]: Writing injected SQL for node "model.lifearc_poc.stg_compounds"
+[0m16:23:40.629058 [debug] [Thread-5 (]: Began executing node model.lifearc_poc.stg_compounds
+[0m16:23:40.630806 [debug] [Thread-5 (]: Writing runtime sql for node "model.lifearc_poc.stg_compounds"
+[0m16:23:40.632543 [debug] [Thread-5 (]: Using snowflake connection "model.lifearc_poc.stg_compounds"
+[0m16:23:40.632770 [debug] [Thread-5 (]: On model.lifearc_poc.stg_compounds: create or replace   view LIFEARC_POC.PUBLIC_bronze.stg_compounds
+  
+  
+  
+  
+  as (
+    -- Staging model: Compound Library (Bronze layer)
+-- Purpose: Clean and standardize raw compound data
+
+
+
+SELECT
+    compound_id,
+    TRIM(molecule_name) AS molecule_name,
+    TRIM(smiles) AS smiles,
+    mol_block,
+    properties,
+    created_at,
+    -- Extract key properties from JSON
+    properties:logP::FLOAT AS logp,
+    properties:tpsa::FLOAT AS tpsa,
+    properties:rotatable_bonds::INT AS rotatable_bonds,
+    properties:num_h_donors::INT AS h_bond_donors,
+    properties:num_h_acceptors::INT AS h_bond_acceptors,
+    properties:lipinski_violations::INT AS lipinski_violations,
+    -- Data quality flags
+    CASE WHEN smiles IS NOT NULL THEN TRUE ELSE FALSE END AS has_smiles,
+    CASE WHEN mol_block IS NOT NULL THEN TRUE ELSE FALSE END AS has_mol_block,
+    CASE WHEN properties IS NOT NULL THEN TRUE ELSE FALSE END AS has_properties
+FROM LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+WHERE compound_id IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.stg_compounds"} */;
+[0m16:23:40.711915 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.307 seconds
+[0m16:23:40.713805 [info ] [Thread-2 (]: 11 of 32 PASS source_unique_unstructured_data_gene_sequences_sequence_id ....... [[32mPASS[0m in 0.32s]
+[0m16:23:40.714294 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6
+[0m16:23:40.714701 [debug] [Thread-2 (]: Began running node model.lifearc_poc.stg_gene_sequences
+[0m16:23:40.715088 [info ] [Thread-2 (]: 15 of 32 START sql view model PUBLIC_bronze.stg_gene_sequences ................. [RUN]
+[0m16:23:40.715381 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_unstructured_data_gene_sequences_sequence_id.e15d3026f6, now model.lifearc_poc.stg_gene_sequences)
+[0m16:23:40.715568 [debug] [Thread-2 (]: Began compiling node model.lifearc_poc.stg_gene_sequences
+[0m16:23:40.717416 [debug] [Thread-2 (]: Writing injected SQL for node "model.lifearc_poc.stg_gene_sequences"
+[0m16:23:40.719190 [debug] [Thread-2 (]: Began executing node model.lifearc_poc.stg_gene_sequences
+[0m16:23:40.720917 [debug] [Thread-2 (]: Writing runtime sql for node "model.lifearc_poc.stg_gene_sequences"
+[0m16:23:40.722723 [debug] [Thread-2 (]: Using snowflake connection "model.lifearc_poc.stg_gene_sequences"
+[0m16:23:40.723024 [debug] [Thread-2 (]: On model.lifearc_poc.stg_gene_sequences: create or replace   view LIFEARC_POC.PUBLIC_bronze.stg_gene_sequences
+  
+  
+  
+  
+  as (
+    -- Staging model: Gene Sequences (Bronze layer)
+-- Purpose: Clean and standardize raw gene sequence data
+
+
+
+SELECT
+    sequence_id,
+    TRIM(UPPER(gene_name)) AS gene_name,
+    TRIM(UPPER(organism)) AS organism,
+    UPPER(REPLACE(sequence, ' ', '')) AS sequence,  -- Remove any spaces
+    sequence_length,
+    ROUND(gc_content, 2) AS gc_content,
+    created_at,
+    description,
+    -- Data quality flags
+    CASE 
+        WHEN sequence_length < 100 THEN 'too_short'
+        WHEN sequence_length < 500 THEN 'minimal'
+        WHEN sequence_length < 1000 THEN 'adequate'
+        ELSE 'good'
+    END AS data_quality_flag,
+    -- Computed fields
+    LENGTH(sequence) AS computed_length,
+    CASE WHEN LENGTH(sequence) = sequence_length THEN TRUE ELSE FALSE END AS length_valid
+FROM LIFEARC_POC.UNSTRUCTURED_DATA.gene_sequences
+WHERE sequence IS NOT NULL
+  AND sequence_id IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.stg_gene_sequences"} */;
+[0m16:23:40.903456 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.433 seconds
+[0m16:23:40.904906 [info ] [Thread-4 (]: 12 of 32 PASS source_unique_unstructured_data_research_documents_doc_id ........ [[32mPASS[0m in 0.45s]
+[0m16:23:40.905444 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522
+[0m16:23:41.113872 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.481 seconds
+[0m16:23:41.125297 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a5bb8f0>]}
+[0m16:23:41.125759 [info ] [Thread-5 (]: 14 of 32 OK created sql view model PUBLIC_bronze.stg_compounds ................. [[32mSUCCESS 1[0m in 0.50s]
+[0m16:23:41.126066 [debug] [Thread-5 (]: Finished running node model.lifearc_poc.stg_compounds
+[0m16:23:41.126386 [debug] [Thread-4 (]: Began running node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:23:41.126608 [debug] [Thread-5 (]: Began running node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:23:41.126961 [info ] [Thread-4 (]: 16 of 32 START test not_null_stg_compounds_compound_id ......................... [RUN]
+[0m16:23:41.127282 [info ] [Thread-5 (]: 17 of 32 START test unique_stg_compounds_compound_id ........................... [RUN]
+[0m16:23:41.127663 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_unstructured_data_research_documents_doc_id.37467ed522, now test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1)
+[0m16:23:41.127997 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.stg_compounds, now test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9)
+[0m16:23:41.128288 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:23:41.128499 [debug] [Thread-5 (]: Began compiling node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:23:41.131154 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:23:41.133716 [debug] [Thread-5 (]: Writing injected SQL for node "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:23:41.138207 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:23:41.138505 [debug] [Thread-5 (]: Began executing node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:23:41.140360 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:23:41.141719 [debug] [Thread-5 (]: Writing runtime sql for node "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:23:41.153438 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.532 seconds
+[0m16:23:41.156343 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a60b650>]}
+[0m16:23:41.156831 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.434 seconds
+[0m16:23:41.157248 [info ] [Thread-3 (]: 13 of 32 OK created sql view model PUBLIC_bronze.stg_clinical_results .......... [[32mSUCCESS 1[0m in 0.56s]
+[0m16:23:41.158407 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a5eaab0>]}
+[0m16:23:41.158762 [debug] [Thread-3 (]: Finished running node model.lifearc_poc.stg_clinical_results
+[0m16:23:41.159127 [info ] [Thread-2 (]: 15 of 32 OK created sql view model PUBLIC_bronze.stg_gene_sequences ............ [[32mSUCCESS 1[0m in 0.44s]
+[0m16:23:41.159595 [debug] [Thread-2 (]: Finished running node model.lifearc_poc.stg_gene_sequences
+[0m16:23:41.159806 [debug] [Thread-3 (]: Began running node test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef
+[0m16:23:41.160003 [debug] [Thread-2 (]: Began running node test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57
+[0m16:23:41.160310 [info ] [Thread-3 (]: 18 of 32 START test accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe  [RUN]
+[0m16:23:41.160543 [info ] [Thread-2 (]: 19 of 32 START test accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN  [RUN]
+[0m16:23:41.160812 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.stg_clinical_results, now test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef)
+[0m16:23:41.161115 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.stg_gene_sequences, now test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57)
+[0m16:23:41.161436 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef
+[0m16:23:41.161687 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57
+[0m16:23:41.164789 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef"
+[0m16:23:41.167679 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57"
+[0m16:23:41.168281 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:23:41.168868 [debug] [Thread-5 (]: Using snowflake connection "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:23:41.169227 [debug] [Thread-4 (]: On test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select compound_id
+from LIFEARC_POC.PUBLIC_bronze.stg_compounds
+where compound_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"} */
+[0m16:23:41.169503 [debug] [Thread-5 (]: On test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    compound_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.PUBLIC_bronze.stg_compounds
+where compound_id is not null
+group by compound_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"} */
+[0m16:23:41.183550 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef
+[0m16:23:41.185450 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef"
+[0m16:23:41.185757 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57
+[0m16:23:41.187311 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57"
+[0m16:23:41.187994 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef"
+[0m16:23:41.188290 [debug] [Thread-3 (]: On test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        adverse_severity as value_field,
+        count(*) as n_records
+
+    from LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+    group by adverse_severity
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'none','mild','moderate','severe'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef"} */
+[0m16:23:41.189565 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57"
+[0m16:23:41.189836 [debug] [Thread-2 (]: On test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        response_code as value_field,
+        count(*) as n_records
+
+    from LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+    group by response_code
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'CR','PR','SD','PD','UNKNOWN'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57"} */
+[0m16:23:41.469004 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.299 seconds
+[0m16:23:41.470355 [info ] [Thread-4 (]: 16 of 32 PASS not_null_stg_compounds_compound_id ............................... [[32mPASS[0m in 0.34s]
+[0m16:23:41.470709 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:23:41.470930 [debug] [Thread-4 (]: Began running node test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066
+[0m16:23:41.471215 [info ] [Thread-4 (]: 20 of 32 START test not_null_stg_clinical_results_result_id .................... [RUN]
+[0m16:23:41.471518 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1, now test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066)
+[0m16:23:41.471717 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066
+[0m16:23:41.474111 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066"
+[0m16:23:41.478493 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066
+[0m16:23:41.480322 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066"
+[0m16:23:41.481795 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066"
+[0m16:23:41.482048 [debug] [Thread-4 (]: On test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select result_id
+from LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+where result_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066"} */
+[0m16:23:41.749240 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.559 seconds
+[0m16:23:41.751942 [info ] [Thread-2 (]: 19 of 32 PASS accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN  [[32mPASS[0m in 0.59s]
+[0m16:23:41.752969 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57
+[0m16:23:41.753494 [debug] [Thread-2 (]: Began running node test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2
+[0m16:23:41.754153 [info ] [Thread-2 (]: 21 of 32 START test unique_stg_clinical_results_result_id ...................... [RUN]
+[0m16:23:41.755157 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.accepted_values_stg_clinical_results_response_code__CR__PR__SD__PD__UNKNOWN.4dc5d58e57, now test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2)
+[0m16:23:41.755674 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2
+[0m16:23:41.760309 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2"
+[0m16:23:41.761862 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.573 seconds
+[0m16:23:41.764317 [info ] [Thread-3 (]: 18 of 32 PASS accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe  [[32mPASS[0m in 0.60s]
+[0m16:23:41.764857 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef
+[0m16:23:41.765252 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2
+[0m16:23:41.765770 [debug] [Thread-3 (]: Began running node test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356
+[0m16:23:41.768556 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2"
+[0m16:23:41.769005 [info ] [Thread-3 (]: 22 of 32 START test accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good  [RUN]
+[0m16:23:41.769666 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.accepted_values_stg_clinical_results_adverse_severity__none__mild__moderate__severe.4b0d5c82ef, now test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356)
+[0m16:23:41.770079 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356
+[0m16:23:41.773787 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356"
+[0m16:23:41.774574 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2"
+[0m16:23:41.775422 [debug] [Thread-2 (]: On test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    result_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+where result_id is not null
+group by result_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2"} */
+[0m16:23:41.776182 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.606 seconds
+[0m16:23:41.778626 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356
+[0m16:23:41.778242 [info ] [Thread-5 (]: 17 of 32 PASS unique_stg_compounds_compound_id ................................. [[32mPASS[0m in 0.65s]
+[0m16:23:41.782464 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356"
+[0m16:23:41.783371 [debug] [Thread-5 (]: Finished running node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:23:41.783906 [debug] [Thread-5 (]: Began running node test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae
+[0m16:23:41.784416 [info ] [Thread-5 (]: 23 of 32 START test not_null_stg_gene_sequences_sequence_id .................... [RUN]
+[0m16:23:41.785221 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9, now test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae)
+[0m16:23:41.786077 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356"
+[0m16:23:41.786534 [debug] [Thread-5 (]: Began compiling node test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae
+[0m16:23:41.786941 [debug] [Thread-3 (]: On test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        data_quality_flag as value_field,
+        count(*) as n_records
+
+    from LIFEARC_POC.PUBLIC_bronze.stg_gene_sequences
+    group by data_quality_flag
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'too_short','minimal','adequate','good'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356"} */
+[0m16:23:41.790104 [debug] [Thread-5 (]: Writing injected SQL for node "test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae"
+[0m16:23:41.791517 [debug] [Thread-5 (]: Began executing node test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae
+[0m16:23:41.793598 [debug] [Thread-5 (]: Writing runtime sql for node "test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae"
+[0m16:23:41.794945 [debug] [Thread-5 (]: Using snowflake connection "test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae"
+[0m16:23:41.795357 [debug] [Thread-5 (]: On test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sequence_id
+from LIFEARC_POC.PUBLIC_bronze.stg_gene_sequences
+where sequence_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae"} */
+[0m16:23:41.813136 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.331 seconds
+[0m16:23:41.814372 [info ] [Thread-4 (]: 20 of 32 PASS not_null_stg_clinical_results_result_id .......................... [[32mPASS[0m in 0.34s]
+[0m16:23:41.814679 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066
+[0m16:23:41.814879 [debug] [Thread-4 (]: Began running node test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261
+[0m16:23:41.815084 [info ] [Thread-4 (]: 24 of 32 START test unique_stg_gene_sequences_sequence_id ...................... [RUN]
+[0m16:23:41.815463 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.not_null_stg_clinical_results_result_id.9456d08066, now test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261)
+[0m16:23:41.815789 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261
+[0m16:23:41.818612 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261"
+[0m16:23:41.823556 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261
+[0m16:23:41.825032 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261"
+[0m16:23:41.826038 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261"
+[0m16:23:41.826250 [debug] [Thread-4 (]: On test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    sequence_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.PUBLIC_bronze.stg_gene_sequences
+where sequence_id is not null
+group by sequence_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261"} */
+[0m16:23:42.089651 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 0.294 seconds
+[0m16:23:42.091214 [info ] [Thread-5 (]: 23 of 32 PASS not_null_stg_gene_sequences_sequence_id .......................... [[32mPASS[0m in 0.31s]
+[0m16:23:42.091583 [debug] [Thread-5 (]: Finished running node test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae
+[0m16:23:42.091802 [debug] [Thread-5 (]: Began running node model.lifearc_poc.int_compound_properties
+[0m16:23:42.092334 [info ] [Thread-5 (]: 25 of 32 START sql table model PUBLIC_silver.int_compound_properties ........... [RUN]
+[0m16:23:42.092755 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.not_null_stg_gene_sequences_sequence_id.8cac7b79ae, now model.lifearc_poc.int_compound_properties)
+[0m16:23:42.092987 [debug] [Thread-5 (]: Began compiling node model.lifearc_poc.int_compound_properties
+[0m16:23:42.095781 [debug] [Thread-5 (]: Writing injected SQL for node "model.lifearc_poc.int_compound_properties"
+[0m16:23:42.098280 [debug] [Thread-5 (]: Began executing node model.lifearc_poc.int_compound_properties
+[0m16:23:42.111990 [debug] [Thread-5 (]: Writing runtime sql for node "model.lifearc_poc.int_compound_properties"
+[0m16:23:42.114321 [debug] [Thread-5 (]: Using snowflake connection "model.lifearc_poc.int_compound_properties"
+[0m16:23:42.114644 [debug] [Thread-5 (]: On model.lifearc_poc.int_compound_properties: create or replace transient table LIFEARC_POC.PUBLIC_silver.int_compound_properties
+    
+    
+    
+    as (-- Intermediate model: Compound Properties Analysis (Silver layer)
+-- Purpose: Enrich compound data with drug-likeness assessments
+
+
+
+SELECT
+    compound_id,
+    molecule_name,
+    smiles,
+    has_mol_block,
+    logp,
+    tpsa,
+    rotatable_bonds,
+    h_bond_donors,
+    h_bond_acceptors,
+    lipinski_violations,
+    created_at,
+    -- Lipinski's Rule of Five assessment
+    CASE 
+        WHEN logp <= 5 
+         AND tpsa <= 140 
+         AND h_bond_donors <= 5 
+         AND h_bond_acceptors <= 10 
+         AND lipinski_violations = 0 
+        THEN 'drug_like'
+        WHEN lipinski_violations <= 1 
+        THEN 'borderline'
+        ELSE 'non_drug_like'
+    END AS drug_likeness,
+    -- Absorption estimation (simplified)
+    CASE 
+        WHEN tpsa < 60 THEN 'high'
+        WHEN tpsa <= 140 THEN 'moderate'
+        ELSE 'low'
+    END AS predicted_absorption,
+    -- BBB penetration estimate
+    CASE 
+        WHEN tpsa < 90 AND logp BETWEEN 1 AND 3 THEN 'likely'
+        ELSE 'unlikely'
+    END AS bbb_penetration,
+    -- Current timestamp
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+FROM LIFEARC_POC.PUBLIC_bronze.stg_compounds
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.int_compound_properties"} */;
+[0m16:23:42.134958 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.358 seconds
+[0m16:23:42.136429 [info ] [Thread-2 (]: 21 of 32 PASS unique_stg_clinical_results_result_id ............................ [[32mPASS[0m in 0.38s]
+[0m16:23:42.136947 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2
+[0m16:23:42.137453 [debug] [Thread-2 (]: Began running node model.lifearc_poc.int_trial_patient_outcomes
+[0m16:23:42.137804 [info ] [Thread-2 (]: 26 of 32 START sql table model PUBLIC_silver.int_trial_patient_outcomes ........ [RUN]
+[0m16:23:42.138069 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.unique_stg_clinical_results_result_id.a2a76be7d2, now model.lifearc_poc.int_trial_patient_outcomes)
+[0m16:23:42.138271 [debug] [Thread-2 (]: Began compiling node model.lifearc_poc.int_trial_patient_outcomes
+[0m16:23:42.140422 [debug] [Thread-2 (]: Writing injected SQL for node "model.lifearc_poc.int_trial_patient_outcomes"
+[0m16:23:42.142335 [debug] [Thread-2 (]: Began executing node model.lifearc_poc.int_trial_patient_outcomes
+[0m16:23:42.144718 [debug] [Thread-2 (]: Writing runtime sql for node "model.lifearc_poc.int_trial_patient_outcomes"
+[0m16:23:42.146762 [debug] [Thread-2 (]: Using snowflake connection "model.lifearc_poc.int_trial_patient_outcomes"
+[0m16:23:42.146996 [debug] [Thread-2 (]: On model.lifearc_poc.int_trial_patient_outcomes: create or replace transient table LIFEARC_POC.PUBLIC_silver.int_trial_patient_outcomes
+    
+    
+    
+    as (-- Intermediate model: Trial Patient Outcomes (Silver layer)
+-- Purpose: Join patient results with trial metadata for analysis
+
+
+
+WITH clinical_results AS (
+    SELECT * FROM LIFEARC_POC.PUBLIC_bronze.stg_clinical_results
+),
+
+trial_info AS (
+    SELECT
+        trial_id,
+        protocol_data:title::VARCHAR AS trial_title,
+        protocol_data:phase::VARCHAR AS trial_phase,
+        protocol_data:indication::VARCHAR AS indication,
+        protocol_data:sponsor::VARCHAR AS sponsor,
+        protocol_data:status::VARCHAR AS trial_status,
+        protocol_data:enrollment.target::INT AS target_enrollment,
+        protocol_data:enrollment.current::INT AS current_enrollment
+    FROM LIFEARC_POC.UNSTRUCTURED_DATA.clinical_trials
+)
+
+SELECT
+    cr.result_id,
+    cr.trial_id,
+    ti.trial_title,
+    ti.trial_phase,
+    ti.indication,
+    ti.sponsor,
+    ti.trial_status,
+    cr.patient_id,
+    cr.site_id,
+    cr.cohort,
+    cr.treatment_arm,
+    cr.response_category,
+    cr.response_code,
+    cr.pfs_months,
+    cr.os_months,
+    cr.adverse_events,
+    cr.adverse_severity,
+    cr.biomarker_status,
+    cr.age_decade,
+    cr.patient_sex,
+    cr.created_at,
+    -- Calculated metrics
+    CASE 
+        WHEN cr.response_code IN ('CR', 'PR') THEN 1 
+        ELSE 0 
+    END AS is_responder,
+    CASE 
+        WHEN cr.pfs_months >= 6 THEN 1 
+        ELSE 0 
+    END AS pfs_6month_flag,
+    CASE 
+        WHEN cr.os_months >= 12 THEN 1 
+        ELSE 0 
+    END AS os_12month_flag,
+    -- Current timestamp for SCD
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+FROM clinical_results cr
+LEFT JOIN trial_info ti ON cr.trial_id = ti.trial_id
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.int_trial_patient_outcomes"} */;
+[0m16:23:42.272002 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.446 seconds
+[0m16:23:42.273751 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.483 seconds
+[0m16:23:42.273263 [info ] [Thread-4 (]: 24 of 32 PASS unique_stg_gene_sequences_sequence_id ............................ [[32mPASS[0m in 0.46s]
+[0m16:23:42.274911 [info ] [Thread-3 (]: 22 of 32 PASS accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good  [[32mPASS[0m in 0.51s]
+[0m16:23:42.275248 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261
+[0m16:23:42.275770 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356
+[0m16:23:42.276332 [debug] [Thread-4 (]: Began running node model.lifearc_poc.mart_gene_analysis
+[0m16:23:42.276706 [info ] [Thread-4 (]: 27 of 32 START sql table model PUBLIC_gold.mart_gene_analysis .................. [RUN]
+[0m16:23:42.277014 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.unique_stg_gene_sequences_sequence_id.21693e2261, now model.lifearc_poc.mart_gene_analysis)
+[0m16:23:42.277272 [debug] [Thread-4 (]: Began compiling node model.lifearc_poc.mart_gene_analysis
+[0m16:23:42.280242 [debug] [Thread-4 (]: Writing injected SQL for node "model.lifearc_poc.mart_gene_analysis"
+[0m16:23:42.282051 [debug] [Thread-4 (]: Began executing node model.lifearc_poc.mart_gene_analysis
+[0m16:23:42.283862 [debug] [Thread-4 (]: Writing runtime sql for node "model.lifearc_poc.mart_gene_analysis"
+[0m16:23:42.296379 [debug] [Thread-4 (]: Using snowflake connection "model.lifearc_poc.mart_gene_analysis"
+[0m16:23:42.296731 [debug] [Thread-4 (]: On model.lifearc_poc.mart_gene_analysis: create or replace transient table LIFEARC_POC.PUBLIC_gold.mart_gene_analysis
+    
+    
+    
+    as (-- Mart model: Gene Analysis Summary (Gold layer)
+-- Purpose: Analytics-ready gene sequence metrics
+
+
+
+SELECT
+    gene_name,
+    organism,
+    COUNT(*) AS sequence_count,
+    
+    -- Sequence metrics
+    ROUND(AVG(sequence_length), 0) AS avg_sequence_length,
+    MIN(sequence_length) AS min_sequence_length,
+    MAX(sequence_length) AS max_sequence_length,
+    
+    -- GC content analysis
+    ROUND(AVG(gc_content), 2) AS avg_gc_content,
+    ROUND(MIN(gc_content), 2) AS min_gc_content,
+    ROUND(MAX(gc_content), 2) AS max_gc_content,
+    
+    -- Quality distribution
+    SUM(CASE WHEN data_quality_flag = 'good' THEN 1 ELSE 0 END) AS good_quality_count,
+    SUM(CASE WHEN data_quality_flag = 'adequate' THEN 1 ELSE 0 END) AS adequate_quality_count,
+    SUM(CASE WHEN data_quality_flag = 'minimal' THEN 1 ELSE 0 END) AS minimal_quality_count,
+    SUM(CASE WHEN data_quality_flag = 'too_short' THEN 1 ELSE 0 END) AS short_quality_count,
+    
+    -- Data quality percentage
+    ROUND(AVG(CASE WHEN length_valid THEN 1 ELSE 0 END) * 100, 1) AS length_validation_rate,
+    
+    -- Latest upload
+    MAX(created_at) AS last_upload,
+    
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+
+FROM LIFEARC_POC.PUBLIC_bronze.stg_gene_sequences
+GROUP BY gene_name, organism
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.mart_gene_analysis"} */;
+[0m16:23:43.316225 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.201 seconds
+[0m16:23:43.317867 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a3d98b0>]}
+[0m16:23:43.318289 [info ] [Thread-5 (]: 25 of 32 OK created sql table model PUBLIC_silver.int_compound_properties ...... [[32mSUCCESS 1[0m in 1.23s]
+[0m16:23:43.318677 [debug] [Thread-5 (]: Finished running node model.lifearc_poc.int_compound_properties
+[0m16:23:43.319048 [debug] [Thread-3 (]: Began running node model.lifearc_poc.mart_compound_analysis
+[0m16:23:43.319309 [info ] [Thread-3 (]: 28 of 32 START sql table model PUBLIC_gold.mart_compound_analysis .............. [RUN]
+[0m16:23:43.319711 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.accepted_values_stg_gene_sequences_data_quality_flag__too_short__minimal__adequate__good.88c55b2356, now model.lifearc_poc.mart_compound_analysis)
+[0m16:23:43.319959 [debug] [Thread-3 (]: Began compiling node model.lifearc_poc.mart_compound_analysis
+[0m16:23:43.321855 [debug] [Thread-3 (]: Writing injected SQL for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:23:43.323569 [debug] [Thread-3 (]: Began executing node model.lifearc_poc.mart_compound_analysis
+[0m16:23:43.327155 [debug] [Thread-3 (]: Writing runtime sql for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:23:43.329373 [debug] [Thread-3 (]: Using snowflake connection "model.lifearc_poc.mart_compound_analysis"
+[0m16:23:43.329844 [debug] [Thread-3 (]: On model.lifearc_poc.mart_compound_analysis: create or replace transient table LIFEARC_POC.PUBLIC_gold.mart_compound_analysis
+    
+    
+    
+    as (-- Mart model: Compound Library Summary (Gold layer)
+-- Purpose: Analytics-ready compound analysis metrics
+
+
+
+SELECT
+    -- Drug-likeness category
+    drug_likeness,
+    predicted_absorption,
+    bbb_penetration,
+    
+    -- Counts
+    COUNT(*) AS compound_count,
+    
+    -- Property averages
+    ROUND(AVG(logp), 2) AS avg_logp,
+    ROUND(AVG(tpsa), 2) AS avg_tpsa,
+    ROUND(AVG(rotatable_bonds), 1) AS avg_rotatable_bonds,
+    ROUND(AVG(h_bond_donors), 1) AS avg_h_bond_donors,
+    ROUND(AVG(h_bond_acceptors), 1) AS avg_h_bond_acceptors,
+    
+    -- Data completeness
+    ROUND(AVG(CASE WHEN has_smiles THEN 1 ELSE 0 END) * 100, 1) AS pct_with_smiles,
+    ROUND(AVG(CASE WHEN has_mol_block THEN 1 ELSE 0 END) * 100, 1) AS pct_with_mol_block,
+    
+    -- Lipinski violations distribution
+    ROUND(AVG(lipinski_violations), 2) AS avg_lipinski_violations,
+    SUM(CASE WHEN lipinski_violations = 0 THEN 1 ELSE 0 END) AS ro5_compliant_count,
+    
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+
+FROM LIFEARC_POC.PUBLIC_silver.int_compound_properties
+GROUP BY drug_likeness, predicted_absorption, bbb_penetration
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.mart_compound_analysis"} */;
+[0m16:23:43.642116 [debug] [Thread-3 (]: Snowflake adapter: Snowflake query id: 01c1d6d7-0207-8600-0049-d18706d7b06e
+[0m16:23:43.642561 [debug] [Thread-3 (]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 27 at position 24
+invalid identifier 'HAS_SMILES'
+[0m16:23:43.646126 [debug] [Thread-3 (]: Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:23:43.646769 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1278f3b60>]}
+[0m16:23:43.647723 [error] [Thread-3 (]: 28 of 32 ERROR creating sql table model PUBLIC_gold.mart_compound_analysis ..... [[31mERROR[0m in 0.33s]
+[0m16:23:43.648423 [debug] [Thread-3 (]: Finished running node model.lifearc_poc.mart_compound_analysis
+[0m16:23:43.648956 [debug] [Thread-8 (]: Marking all children of 'model.lifearc_poc.mart_compound_analysis' to be skipped because of status 'error'.  Reason: Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql.
+[0m16:23:43.649645 [debug] [Thread-5 (]: Began running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:23:43.649948 [info ] [Thread-5 (]: 29 of 32 SKIP test accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like  [[33mSKIP[0m]
+[0m16:23:43.650244 [debug] [Thread-5 (]: Finished running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:23:43.650498 [debug] [Thread-8 (]: Marking all children of 'test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b' to be skipped because of status 'skipped'. 
+[0m16:23:43.826766 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.526 seconds
+[0m16:23:43.830143 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a57e540>]}
+[0m16:23:43.830563 [info ] [Thread-4 (]: 27 of 32 OK created sql table model PUBLIC_gold.mart_gene_analysis ............. [[32mSUCCESS 1[0m in 1.55s]
+[0m16:23:43.830900 [debug] [Thread-4 (]: Finished running node model.lifearc_poc.mart_gene_analysis
+[0m16:23:43.831331 [debug] [Thread-3 (]: Began running node test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc
+[0m16:23:43.831529 [info ] [Thread-3 (]: 30 of 32 START test not_null_mart_gene_analysis_gene_name ...................... [RUN]
+[0m16:23:43.831747 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.mart_compound_analysis, now test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc)
+[0m16:23:43.831924 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc
+[0m16:23:43.834577 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc"
+[0m16:23:43.837779 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc
+[0m16:23:43.839249 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc"
+[0m16:23:43.841424 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc"
+[0m16:23:43.841683 [debug] [Thread-3 (]: On test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select gene_name
+from LIFEARC_POC.PUBLIC_gold.mart_gene_analysis
+where gene_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc"} */
+[0m16:23:43.982700 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.835 seconds
+[0m16:23:43.987633 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a5fc500>]}
+[0m16:23:43.988137 [info ] [Thread-2 (]: 26 of 32 OK created sql table model PUBLIC_silver.int_trial_patient_outcomes ... [[32mSUCCESS 1[0m in 1.85s]
+[0m16:23:43.988516 [debug] [Thread-2 (]: Finished running node model.lifearc_poc.int_trial_patient_outcomes
+[0m16:23:43.988914 [debug] [Thread-4 (]: Began running node model.lifearc_poc.mart_trial_efficacy
+[0m16:23:43.989342 [info ] [Thread-4 (]: 31 of 32 START sql table model PUBLIC_gold.mart_trial_efficacy ................. [RUN]
+[0m16:23:43.989611 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.mart_gene_analysis, now model.lifearc_poc.mart_trial_efficacy)
+[0m16:23:43.989797 [debug] [Thread-4 (]: Began compiling node model.lifearc_poc.mart_trial_efficacy
+[0m16:23:43.991903 [debug] [Thread-4 (]: Writing injected SQL for node "model.lifearc_poc.mart_trial_efficacy"
+[0m16:23:43.995223 [debug] [Thread-4 (]: Began executing node model.lifearc_poc.mart_trial_efficacy
+[0m16:23:43.996572 [debug] [Thread-4 (]: Writing runtime sql for node "model.lifearc_poc.mart_trial_efficacy"
+[0m16:23:43.999023 [debug] [Thread-4 (]: Using snowflake connection "model.lifearc_poc.mart_trial_efficacy"
+[0m16:23:43.999331 [debug] [Thread-4 (]: On model.lifearc_poc.mart_trial_efficacy: create or replace transient table LIFEARC_POC.PUBLIC_gold.mart_trial_efficacy
+    
+    
+    
+    as (-- Mart model: Trial Efficacy Summary (Gold layer)
+-- Purpose: Analytics-ready aggregated trial efficacy metrics
+
+
+
+SELECT
+    trial_id,
+    trial_title,
+    trial_phase,
+    indication,
+    sponsor,
+    trial_status,
+    treatment_arm,
+    
+    -- Patient counts
+    COUNT(DISTINCT patient_id) AS patient_count,
+    COUNT(DISTINCT site_id) AS site_count,
+    
+    -- Response metrics
+    SUM(is_responder) AS responder_count,
+    ROUND(AVG(is_responder) * 100, 1) AS objective_response_rate,
+    
+    -- Response breakdown
+    SUM(CASE WHEN response_code = 'CR' THEN 1 ELSE 0 END) AS complete_response_count,
+    SUM(CASE WHEN response_code = 'PR' THEN 1 ELSE 0 END) AS partial_response_count,
+    SUM(CASE WHEN response_code = 'SD' THEN 1 ELSE 0 END) AS stable_disease_count,
+    SUM(CASE WHEN response_code = 'PD' THEN 1 ELSE 0 END) AS progressive_disease_count,
+    
+    -- Survival metrics
+    ROUND(AVG(pfs_months), 1) AS mean_pfs_months,
+    ROUND(MEDIAN(pfs_months), 1) AS median_pfs_months,
+    ROUND(AVG(os_months), 1) AS mean_os_months,
+    ROUND(MEDIAN(os_months), 1) AS median_os_months,
+    
+    -- 6-month PFS rate
+    ROUND(AVG(pfs_6month_flag) * 100, 1) AS pfs_6month_rate,
+    
+    -- 12-month OS rate
+    ROUND(AVG(os_12month_flag) * 100, 1) AS os_12month_rate,
+    
+    -- Safety metrics
+    SUM(CASE WHEN adverse_severity = 'severe' THEN 1 ELSE 0 END) AS severe_ae_count,
+    ROUND(AVG(CASE WHEN adverse_severity = 'severe' THEN 1 ELSE 0 END) * 100, 1) AS severe_ae_rate,
+    
+    -- Demographics
+    ROUND(AVG(age_decade), 0) AS mean_age_decade,
+    ROUND(AVG(CASE WHEN patient_sex = 'F' THEN 1 ELSE 0 END) * 100, 1) AS female_pct,
+    
+    -- Timestamps
+    MIN(created_at) AS first_result_at,
+    MAX(created_at) AS last_result_at,
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+
+FROM LIFEARC_POC.PUBLIC_silver.int_trial_patient_outcomes
+GROUP BY 
+    trial_id, trial_title, trial_phase, indication, 
+    sponsor, trial_status, treatment_arm
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.mart_trial_efficacy"} */;
+[0m16:23:44.167968 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.326 seconds
+[0m16:23:44.171112 [info ] [Thread-3 (]: 30 of 32 PASS not_null_mart_gene_analysis_gene_name ............................ [[32mPASS[0m in 0.34s]
+[0m16:23:44.171680 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc
+[0m16:23:45.428715 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.429 seconds
+[0m16:23:45.431753 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0d42f18c-da6d-49a5-92df-a86d8fe8d948', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a568170>]}
+[0m16:23:45.432221 [info ] [Thread-4 (]: 31 of 32 OK created sql table model PUBLIC_gold.mart_trial_efficacy ............ [[32mSUCCESS 1[0m in 1.44s]
+[0m16:23:45.432503 [debug] [Thread-4 (]: Finished running node model.lifearc_poc.mart_trial_efficacy
+[0m16:23:45.432989 [debug] [Thread-2 (]: Began running node test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65
+[0m16:23:45.433258 [info ] [Thread-2 (]: 32 of 32 START test not_null_mart_trial_efficacy_trial_id ...................... [RUN]
+[0m16:23:45.433479 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.int_trial_patient_outcomes, now test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65)
+[0m16:23:45.433650 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65
+[0m16:23:45.435793 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65"
+[0m16:23:45.436587 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65
+[0m16:23:45.439332 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65"
+[0m16:23:45.440477 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65"
+[0m16:23:45.440688 [debug] [Thread-2 (]: On test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trial_id
+from LIFEARC_POC.PUBLIC_gold.mart_trial_efficacy
+where trial_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65"} */
+[0m16:23:45.762943 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.322 seconds
+[0m16:23:45.766373 [info ] [Thread-2 (]: 32 of 32 PASS not_null_mart_trial_efficacy_trial_id ............................ [[32mPASS[0m in 0.33s]
+[0m16:23:45.767083 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65
+[0m16:23:45.768184 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:23:45.768427 [debug] [MainThread]: Connection 'test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65' was left open.
+[0m16:23:45.768600 [debug] [MainThread]: On test.lifearc_poc.not_null_mart_trial_efficacy_trial_id.565d47da65: Close
+[0m16:23:46.135197 [debug] [MainThread]: Connection 'test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc' was left open.
+[0m16:23:46.135533 [debug] [MainThread]: On test.lifearc_poc.not_null_mart_gene_analysis_gene_name.6e6e0beebc: Close
+[0m16:23:46.533282 [debug] [MainThread]: Connection 'model.lifearc_poc.mart_trial_efficacy' was left open.
+[0m16:23:46.533633 [debug] [MainThread]: On model.lifearc_poc.mart_trial_efficacy: Close
+[0m16:23:46.881746 [debug] [MainThread]: Connection 'model.lifearc_poc.int_compound_properties' was left open.
+[0m16:23:46.882258 [debug] [MainThread]: On model.lifearc_poc.int_compound_properties: Close
+[0m16:23:47.282747 [info ] [MainThread]: 
+[0m16:23:47.283188 [info ] [MainThread]: Finished running 5 table models, 24 data tests, 3 view models in 0 hours 0 minutes and 10.52 seconds (10.52s).
+[0m16:23:47.285173 [debug] [MainThread]: Command end result
+[0m16:23:47.305819 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:23:47.307376 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:23:47.312670 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/run_results.json
+[0m16:23:47.312889 [info ] [MainThread]: 
+[0m16:23:47.313079 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m16:23:47.313231 [info ] [MainThread]: 
+[0m16:23:47.313475 [error] [MainThread]: [31mFailure in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)[0m
+[0m16:23:47.313728 [error] [MainThread]:   Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:23:47.313888 [info ] [MainThread]: 
+[0m16:23:47.314062 [info ] [MainThread]:   compiled code at target/compiled/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:23:47.314212 [info ] [MainThread]: 
+[0m16:23:47.314370 [info ] [MainThread]: Done. PASS=30 WARN=0 ERROR=1 SKIP=1 NO-OP=0 TOTAL=32
+[0m16:23:47.314682 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 4 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m16:23:47.318463 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 12.729878, "process_in_blocks": "0", "process_kernel_time": 2.391979, "process_mem_max_rss": "248004608", "process_out_blocks": "0", "process_user_time": 4.316363}
+[0m16:23:47.318917 [debug] [MainThread]: Command `dbt build` failed at 16:23:47.318853 after 12.73 seconds
+[0m16:23:47.319153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12771c320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113b11fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a2ef4d0>]}
+[0m16:23:47.319371 [debug] [MainThread]: Flushing usage events
+[0m16:23:47.834319 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:24:08.015679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105492480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1055fe210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1055fde20>]}
+
+
+============================== 16:24:08.019525 | 86ddd380-59c1-4de4-9ddf-e0034e190d36 ==============================
+[0m16:24:08.019525 [info ] [MainThread]: Running with dbt=1.11.2
+[0m16:24:08.020039 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'target_path': 'None', 'quiet': 'False', 'printer_width': '80', 'partial_parse': 'True', 'cache_selected_only': 'False', 'empty': 'False', 'log_format': 'default', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'debug': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'write_json': 'True', 'invocation_command': 'dbt build --select mart_compound_analysis', 'log_path': '/Users/zzahid/Documents/GitHub/LifeArc/dbt/logs', 'profiles_dir': '/Users/zzahid/.dbt', 'use_experimental_parser': 'False', 'use_colors': 'True'}
+[0m16:24:08.829557 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:24:08.829935 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:24:08.830117 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m16:24:09.019127 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1048f3ce0>]}
+[0m16:24:09.062192 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x144f38f20>]}
+[0m16:24:09.063162 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m16:24:09.141302 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m16:24:09.234153 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m16:24:09.234718 [debug] [MainThread]: Partial parsing: updated file: lifearc_poc://models/intermediate/int_compound_properties.sql
+[0m16:24:09.458908 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- seeds.lifearc_poc
+[0m16:24:09.465975 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x145ef1190>]}
+[0m16:24:09.514479 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:24:09.516386 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:24:09.540676 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x146013d40>]}
+[0m16:24:09.541026 [info ] [MainThread]: Found 8 models, 24 data tests, 6 sources, 522 macros
+[0m16:24:09.542293 [info ] [MainThread]: 
+[0m16:24:09.542649 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:24:09.542835 [info ] [MainThread]: 
+[0m16:24:09.543128 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m16:24:09.543651 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:24:09.604088 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:24:09.604406 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:24:09.604567 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:10.850045 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 1.245 seconds
+[0m16:24:10.853943 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now list_LIFEARC_POC_PUBLIC_gold)
+[0m16:24:10.854245 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC_PUBLIC_silver'
+[0m16:24:10.854531 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC_PUBLIC_bronze'
+[0m16:24:10.862806 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_gold"
+[0m16:24:10.864357 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_silver"
+[0m16:24:10.865690 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_bronze"
+[0m16:24:10.865995 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_gold: show objects in LIFEARC_POC.PUBLIC_gold
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_gold"} */;
+[0m16:24:10.866226 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_silver: show objects in LIFEARC_POC.PUBLIC_silver
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_silver"} */;
+[0m16:24:10.866576 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_bronze: show objects in LIFEARC_POC.PUBLIC_bronze
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_bronze"} */;
+[0m16:24:10.867390 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:10.867628 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:11.231737 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.365 seconds
+[0m16:24:12.061154 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.194 seconds
+[0m16:24:12.310431 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.443 seconds
+[0m16:24:12.313005 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x145b0a030>]}
+[0m16:24:12.315485 [debug] [Thread-2 (]: Began running node model.lifearc_poc.mart_compound_analysis
+[0m16:24:12.315833 [info ] [Thread-2 (]: 1 of 2 START sql table model PUBLIC_gold.mart_compound_analysis ................ [RUN]
+[0m16:24:12.316095 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_gold, now model.lifearc_poc.mart_compound_analysis)
+[0m16:24:12.316292 [debug] [Thread-2 (]: Began compiling node model.lifearc_poc.mart_compound_analysis
+[0m16:24:12.321021 [debug] [Thread-2 (]: Writing injected SQL for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:12.321862 [debug] [Thread-2 (]: Began executing node model.lifearc_poc.mart_compound_analysis
+[0m16:24:12.341872 [debug] [Thread-2 (]: Writing runtime sql for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:12.343377 [debug] [Thread-2 (]: Using snowflake connection "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:12.343719 [debug] [Thread-2 (]: On model.lifearc_poc.mart_compound_analysis: create or replace transient table LIFEARC_POC.PUBLIC_gold.mart_compound_analysis
+    
+    
+    
+    as (-- Mart model: Compound Library Summary (Gold layer)
+-- Purpose: Analytics-ready compound analysis metrics
+
+
+
+SELECT
+    -- Drug-likeness category
+    drug_likeness,
+    predicted_absorption,
+    bbb_penetration,
+    
+    -- Counts
+    COUNT(*) AS compound_count,
+    
+    -- Property averages
+    ROUND(AVG(logp), 2) AS avg_logp,
+    ROUND(AVG(tpsa), 2) AS avg_tpsa,
+    ROUND(AVG(rotatable_bonds), 1) AS avg_rotatable_bonds,
+    ROUND(AVG(h_bond_donors), 1) AS avg_h_bond_donors,
+    ROUND(AVG(h_bond_acceptors), 1) AS avg_h_bond_acceptors,
+    
+    -- Data completeness
+    ROUND(AVG(CASE WHEN has_smiles THEN 1 ELSE 0 END) * 100, 1) AS pct_with_smiles,
+    ROUND(AVG(CASE WHEN has_mol_block THEN 1 ELSE 0 END) * 100, 1) AS pct_with_mol_block,
+    
+    -- Lipinski violations distribution
+    ROUND(AVG(lipinski_violations), 2) AS avg_lipinski_violations,
+    SUM(CASE WHEN lipinski_violations = 0 THEN 1 ELSE 0 END) AS ro5_compliant_count,
+    
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+
+FROM LIFEARC_POC.PUBLIC_silver.int_compound_properties
+GROUP BY drug_likeness, predicted_absorption, bbb_penetration
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.mart_compound_analysis"} */;
+[0m16:24:12.594870 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c1d6d8-0207-8600-0049-d18706d7b072
+[0m16:24:12.595250 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 27 at position 24
+invalid identifier 'HAS_SMILES'
+[0m16:24:12.598453 [debug] [Thread-2 (]: Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:24:12.600701 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '86ddd380-59c1-4de4-9ddf-e0034e190d36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1048581a0>]}
+[0m16:24:12.601207 [error] [Thread-2 (]: 1 of 2 ERROR creating sql table model PUBLIC_gold.mart_compound_analysis ....... [[31mERROR[0m in 0.28s]
+[0m16:24:12.601519 [debug] [Thread-2 (]: Finished running node model.lifearc_poc.mart_compound_analysis
+[0m16:24:12.601798 [debug] [Thread-8 (]: Marking all children of 'model.lifearc_poc.mart_compound_analysis' to be skipped because of status 'error'.  Reason: Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql.
+[0m16:24:12.602469 [debug] [Thread-4 (]: Began running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:12.602825 [info ] [Thread-4 (]: 2 of 2 SKIP test accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like  [[33mSKIP[0m]
+[0m16:24:12.603117 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:12.603371 [debug] [Thread-8 (]: Marking all children of 'test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b' to be skipped because of status 'skipped'. 
+[0m16:24:12.604123 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:24:12.604329 [debug] [MainThread]: Connection 'model.lifearc_poc.mart_compound_analysis' was left open.
+[0m16:24:12.604486 [debug] [MainThread]: On model.lifearc_poc.mart_compound_analysis: Close
+[0m16:24:12.957991 [debug] [MainThread]: Connection 'list_LIFEARC_POC_PUBLIC_silver' was left open.
+[0m16:24:12.958375 [debug] [MainThread]: On list_LIFEARC_POC_PUBLIC_silver: Close
+[0m16:24:13.466904 [debug] [MainThread]: Connection 'list_LIFEARC_POC_PUBLIC_bronze' was left open.
+[0m16:24:13.467291 [debug] [MainThread]: On list_LIFEARC_POC_PUBLIC_bronze: Close
+[0m16:24:13.820275 [info ] [MainThread]: 
+[0m16:24:13.820769 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 4.28 seconds (4.28s).
+[0m16:24:13.821167 [debug] [MainThread]: Command end result
+[0m16:24:13.840556 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:24:13.842453 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:24:13.846115 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/run_results.json
+[0m16:24:13.846397 [info ] [MainThread]: 
+[0m16:24:13.846631 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m16:24:13.846864 [info ] [MainThread]: 
+[0m16:24:13.847153 [error] [MainThread]: [31mFailure in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)[0m
+[0m16:24:13.847563 [error] [MainThread]:   Database Error in model mart_compound_analysis (models/marts/mart_compound_analysis.sql)
+  000904 (42000): SQL compilation error: error line 27 at position 24
+  invalid identifier 'HAS_SMILES'
+  compiled code at target/run/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:24:13.847816 [info ] [MainThread]: 
+[0m16:24:13.848089 [info ] [MainThread]:   compiled code at target/compiled/lifearc_poc/models/marts/mart_compound_analysis.sql
+[0m16:24:13.848295 [info ] [MainThread]: 
+[0m16:24:13.848476 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=1 NO-OP=0 TOTAL=2
+[0m16:24:13.852040 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 5.920817, "process_in_blocks": "0", "process_kernel_time": 2.46436, "process_mem_max_rss": "247431168", "process_out_blocks": "0", "process_user_time": 2.956412}
+[0m16:24:13.852290 [debug] [MainThread]: Command `dbt build` failed at 16:24:13.852246 after 5.92 seconds
+[0m16:24:13.852495 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x145f09eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1055fdfa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1055fe1e0>]}
+[0m16:24:13.852688 [debug] [MainThread]: Flushing usage events
+[0m16:24:14.211730 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:24:21.378436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bc27b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be4a270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be49e50>]}
+
+
+============================== 16:24:21.381753 | 8ae5f443-db61-4206-92fc-5a863f4fb990 ==============================
+[0m16:24:21.381753 [info ] [MainThread]: Running with dbt=1.11.2
+[0m16:24:21.382296 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'invocation_command': 'dbt build --select +mart_compound_analysis', 'version_check': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'use_colors': 'True', 'warn_error': 'None', 'target_path': 'None', 'quiet': 'False', 'log_cache_events': 'False', 'log_path': '/Users/zzahid/Documents/GitHub/LifeArc/dbt/logs', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/zzahid/.dbt', 'write_json': 'True', 'no_print': 'None', 'printer_width': '80', 'introspect': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'debug': 'False', 'static_parser': 'True', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m16:24:22.162387 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:24:22.162770 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:24:22.162955 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m16:24:22.327074 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b639610>]}
+[0m16:24:22.370766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16d38e5a0>]}
+[0m16:24:22.372116 [info ] [MainThread]: Registered adapter: snowflake=1.11.1
+[0m16:24:22.454334 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m16:24:22.563321 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:24:22.565892 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m16:24:22.567306 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:24:22.570777 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- seeds.lifearc_poc
+[0m16:24:22.594059 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16b1a43e0>]}
+[0m16:24:22.692560 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:24:22.694306 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:24:22.722629 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be4b9b0>]}
+[0m16:24:22.723011 [info ] [MainThread]: Found 8 models, 24 data tests, 6 sources, 522 macros
+[0m16:24:22.724653 [info ] [MainThread]: 
+[0m16:24:22.724914 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:24:22.725069 [info ] [MainThread]: 
+[0m16:24:22.725320 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m16:24:22.727388 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:24:22.727781 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:24:22.728119 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LIFEARC_POC'
+[0m16:24:22.791357 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:24:22.791710 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:24:22.791944 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC"
+[0m16:24:22.792186 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:24:22.792393 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:24:22.792573 [debug] [ThreadPool]: On list_LIFEARC_POC: show terse schemas in database LIFEARC_POC
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC"} */
+[0m16:24:22.792825 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:22.793080 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:22.793310 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:24:24.251077 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 1.458 seconds
+[0m16:24:24.291873 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 1.499 seconds
+[0m16:24:24.347866 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 1.554 seconds
+[0m16:24:24.351014 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now list_LIFEARC_POC_PUBLIC_bronze)
+[0m16:24:24.351428 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now list_LIFEARC_POC_PUBLIC_silver)
+[0m16:24:24.351706 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LIFEARC_POC, now list_LIFEARC_POC_PUBLIC_gold)
+[0m16:24:24.361793 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_bronze"
+[0m16:24:24.363493 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_silver"
+[0m16:24:24.364859 [debug] [ThreadPool]: Using snowflake connection "list_LIFEARC_POC_PUBLIC_gold"
+[0m16:24:24.365211 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_bronze: show objects in LIFEARC_POC.PUBLIC_bronze
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_bronze"} */;
+[0m16:24:24.365549 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_silver: show objects in LIFEARC_POC.PUBLIC_silver
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_silver"} */;
+[0m16:24:24.365755 [debug] [ThreadPool]: On list_LIFEARC_POC_PUBLIC_gold: show objects in LIFEARC_POC.PUBLIC_gold
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "connection_name": "list_LIFEARC_POC_PUBLIC_gold"} */;
+[0m16:24:24.663121 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.297 seconds
+[0m16:24:24.676684 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.310 seconds
+[0m16:24:24.821902 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 0.456 seconds
+[0m16:24:24.823800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16d47e4b0>]}
+[0m16:24:24.827814 [debug] [Thread-2 (]: Began running node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:24:24.828084 [debug] [Thread-3 (]: Began running node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:24:24.828381 [info ] [Thread-2 (]: 1 of 8 START test source_not_null_unstructured_data_compound_library_compound_id  [RUN]
+[0m16:24:24.828760 [info ] [Thread-3 (]: 2 of 8 START test source_unique_unstructured_data_compound_library_compound_id . [RUN]
+[0m16:24:24.829082 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_bronze, now test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3)
+[0m16:24:24.829657 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_silver, now test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06)
+[0m16:24:24.829978 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:24:24.830211 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:24:24.838743 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:24:24.842110 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:24:24.843032 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:24:24.848550 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:24:24.854774 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:24:24.856404 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:24:24.857332 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"
+[0m16:24:24.857657 [debug] [Thread-3 (]: On test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    compound_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+where compound_id is not null
+group by compound_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06"} */
+[0m16:24:24.858121 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"
+[0m16:24:24.858559 [debug] [Thread-2 (]: On test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select compound_id
+from LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+where compound_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3"} */
+[0m16:24:25.105319 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.247 seconds
+[0m16:24:25.111315 [info ] [Thread-3 (]: 2 of 8 PASS source_unique_unstructured_data_compound_library_compound_id ....... [[32mPASS[0m in 0.28s]
+[0m16:24:25.112248 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06
+[0m16:24:25.112970 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.254 seconds
+[0m16:24:25.114783 [info ] [Thread-2 (]: 1 of 8 PASS source_not_null_unstructured_data_compound_library_compound_id ..... [[32mPASS[0m in 0.29s]
+[0m16:24:25.115129 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3
+[0m16:24:25.115679 [debug] [Thread-5 (]: Began running node model.lifearc_poc.stg_compounds
+[0m16:24:25.116168 [info ] [Thread-5 (]: 3 of 8 START sql view model PUBLIC_bronze.stg_compounds ........................ [RUN]
+[0m16:24:25.116556 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.lifearc_poc.stg_compounds'
+[0m16:24:25.116778 [debug] [Thread-5 (]: Began compiling node model.lifearc_poc.stg_compounds
+[0m16:24:25.118984 [debug] [Thread-5 (]: Writing injected SQL for node "model.lifearc_poc.stg_compounds"
+[0m16:24:25.119762 [debug] [Thread-5 (]: Began executing node model.lifearc_poc.stg_compounds
+[0m16:24:25.138015 [debug] [Thread-5 (]: Writing runtime sql for node "model.lifearc_poc.stg_compounds"
+[0m16:24:25.139533 [debug] [Thread-5 (]: Using snowflake connection "model.lifearc_poc.stg_compounds"
+[0m16:24:25.139756 [debug] [Thread-5 (]: On model.lifearc_poc.stg_compounds: create or replace   view LIFEARC_POC.PUBLIC_bronze.stg_compounds
+  
+  
+  
+  
+  as (
+    -- Staging model: Compound Library (Bronze layer)
+-- Purpose: Clean and standardize raw compound data
+
+
+
+SELECT
+    compound_id,
+    TRIM(molecule_name) AS molecule_name,
+    TRIM(smiles) AS smiles,
+    mol_block,
+    properties,
+    created_at,
+    -- Extract key properties from JSON
+    properties:logP::FLOAT AS logp,
+    properties:tpsa::FLOAT AS tpsa,
+    properties:rotatable_bonds::INT AS rotatable_bonds,
+    properties:num_h_donors::INT AS h_bond_donors,
+    properties:num_h_acceptors::INT AS h_bond_acceptors,
+    properties:lipinski_violations::INT AS lipinski_violations,
+    -- Data quality flags
+    CASE WHEN smiles IS NOT NULL THEN TRUE ELSE FALSE END AS has_smiles,
+    CASE WHEN mol_block IS NOT NULL THEN TRUE ELSE FALSE END AS has_mol_block,
+    CASE WHEN properties IS NOT NULL THEN TRUE ELSE FALSE END AS has_properties
+FROM LIFEARC_POC.UNSTRUCTURED_DATA.compound_library
+WHERE compound_id IS NOT NULL
+  )
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.stg_compounds"} */;
+[0m16:24:25.139945 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:24:26.543789 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.404 seconds
+[0m16:24:26.556261 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16fe4e0c0>]}
+[0m16:24:26.556814 [info ] [Thread-5 (]: 3 of 8 OK created sql view model PUBLIC_bronze.stg_compounds ................... [[32mSUCCESS 1[0m in 1.44s]
+[0m16:24:26.557202 [debug] [Thread-5 (]: Finished running node model.lifearc_poc.stg_compounds
+[0m16:24:26.557943 [debug] [Thread-3 (]: Began running node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:24:26.558493 [debug] [Thread-2 (]: Began running node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:24:26.558283 [info ] [Thread-3 (]: 4 of 8 START test not_null_stg_compounds_compound_id ........................... [RUN]
+[0m16:24:26.558842 [info ] [Thread-2 (]: 5 of 8 START test unique_stg_compounds_compound_id ............................. [RUN]
+[0m16:24:26.559269 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_unique_unstructured_data_compound_library_compound_id.a89da58a06, now test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1)
+[0m16:24:26.559627 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.source_not_null_unstructured_data_compound_library_compound_id.ba98d2dce3, now test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9)
+[0m16:24:26.559851 [debug] [Thread-3 (]: Began compiling node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:24:26.560143 [debug] [Thread-2 (]: Began compiling node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:24:26.562537 [debug] [Thread-3 (]: Writing injected SQL for node "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:24:26.565585 [debug] [Thread-2 (]: Writing injected SQL for node "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:24:26.566485 [debug] [Thread-2 (]: Began executing node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:24:26.568074 [debug] [Thread-2 (]: Writing runtime sql for node "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:24:26.568351 [debug] [Thread-3 (]: Began executing node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:24:26.569829 [debug] [Thread-3 (]: Writing runtime sql for node "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:24:26.570564 [debug] [Thread-2 (]: Using snowflake connection "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"
+[0m16:24:26.570885 [debug] [Thread-2 (]: On test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    compound_id as unique_field,
+    count(*) as n_records
+
+from LIFEARC_POC.PUBLIC_bronze.stg_compounds
+where compound_id is not null
+group by compound_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9"} */
+[0m16:24:26.571494 [debug] [Thread-3 (]: Using snowflake connection "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"
+[0m16:24:26.572069 [debug] [Thread-3 (]: On test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select compound_id
+from LIFEARC_POC.PUBLIC_bronze.stg_compounds
+where compound_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1"} */
+[0m16:24:26.895702 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.323 seconds
+[0m16:24:26.897641 [info ] [Thread-2 (]: 5 of 8 PASS unique_stg_compounds_compound_id ................................... [[32mPASS[0m in 0.34s]
+[0m16:24:26.898111 [debug] [Thread-2 (]: Finished running node test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9
+[0m16:24:27.009506 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.437 seconds
+[0m16:24:27.010774 [info ] [Thread-3 (]: 4 of 8 PASS not_null_stg_compounds_compound_id ................................. [[32mPASS[0m in 0.45s]
+[0m16:24:27.011084 [debug] [Thread-3 (]: Finished running node test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1
+[0m16:24:27.011499 [debug] [Thread-5 (]: Began running node model.lifearc_poc.int_compound_properties
+[0m16:24:27.011854 [info ] [Thread-5 (]: 6 of 8 START sql table model PUBLIC_silver.int_compound_properties ............. [RUN]
+[0m16:24:27.012170 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.lifearc_poc.stg_compounds, now model.lifearc_poc.int_compound_properties)
+[0m16:24:27.012383 [debug] [Thread-5 (]: Began compiling node model.lifearc_poc.int_compound_properties
+[0m16:24:27.014294 [debug] [Thread-5 (]: Writing injected SQL for node "model.lifearc_poc.int_compound_properties"
+[0m16:24:27.014959 [debug] [Thread-5 (]: Began executing node model.lifearc_poc.int_compound_properties
+[0m16:24:27.032578 [debug] [Thread-5 (]: Writing runtime sql for node "model.lifearc_poc.int_compound_properties"
+[0m16:24:27.034220 [debug] [Thread-5 (]: Using snowflake connection "model.lifearc_poc.int_compound_properties"
+[0m16:24:27.034506 [debug] [Thread-5 (]: On model.lifearc_poc.int_compound_properties: create or replace transient table LIFEARC_POC.PUBLIC_silver.int_compound_properties
+    
+    
+    
+    as (-- Intermediate model: Compound Properties Analysis (Silver layer)
+-- Purpose: Enrich compound data with drug-likeness assessments
+
+
+
+SELECT
+    compound_id,
+    molecule_name,
+    smiles,
+    has_smiles,
+    has_mol_block,
+    has_properties,
+    logp,
+    tpsa,
+    rotatable_bonds,
+    h_bond_donors,
+    h_bond_acceptors,
+    lipinski_violations,
+    created_at,
+    -- Lipinski's Rule of Five assessment
+    CASE 
+        WHEN logp <= 5 
+         AND tpsa <= 140 
+         AND h_bond_donors <= 5 
+         AND h_bond_acceptors <= 10 
+         AND lipinski_violations = 0 
+        THEN 'drug_like'
+        WHEN lipinski_violations <= 1 
+        THEN 'borderline'
+        ELSE 'non_drug_like'
+    END AS drug_likeness,
+    -- Absorption estimation (simplified)
+    CASE 
+        WHEN tpsa < 60 THEN 'high'
+        WHEN tpsa <= 140 THEN 'moderate'
+        ELSE 'low'
+    END AS predicted_absorption,
+    -- BBB penetration estimate
+    CASE 
+        WHEN tpsa < 90 AND logp BETWEEN 1 AND 3 THEN 'likely'
+        ELSE 'unlikely'
+    END AS bbb_penetration,
+    -- Current timestamp
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+FROM LIFEARC_POC.PUBLIC_bronze.stg_compounds
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.int_compound_properties"} */;
+[0m16:24:28.309860 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.275 seconds
+[0m16:24:28.311550 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16d59bf20>]}
+[0m16:24:28.311952 [info ] [Thread-5 (]: 6 of 8 OK created sql table model PUBLIC_silver.int_compound_properties ........ [[32mSUCCESS 1[0m in 1.30s]
+[0m16:24:28.312237 [debug] [Thread-5 (]: Finished running node model.lifearc_poc.int_compound_properties
+[0m16:24:28.312759 [debug] [Thread-2 (]: Began running node model.lifearc_poc.mart_compound_analysis
+[0m16:24:28.313235 [info ] [Thread-2 (]: 7 of 8 START sql table model PUBLIC_gold.mart_compound_analysis ................ [RUN]
+[0m16:24:28.313573 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.lifearc_poc.unique_stg_compounds_compound_id.bae0443de9, now model.lifearc_poc.mart_compound_analysis)
+[0m16:24:28.313861 [debug] [Thread-2 (]: Began compiling node model.lifearc_poc.mart_compound_analysis
+[0m16:24:28.315834 [debug] [Thread-2 (]: Writing injected SQL for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:28.316552 [debug] [Thread-2 (]: Began executing node model.lifearc_poc.mart_compound_analysis
+[0m16:24:28.317962 [debug] [Thread-2 (]: Writing runtime sql for node "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:28.319317 [debug] [Thread-2 (]: Using snowflake connection "model.lifearc_poc.mart_compound_analysis"
+[0m16:24:28.319715 [debug] [Thread-2 (]: On model.lifearc_poc.mart_compound_analysis: create or replace transient table LIFEARC_POC.PUBLIC_gold.mart_compound_analysis
+    
+    
+    
+    as (-- Mart model: Compound Library Summary (Gold layer)
+-- Purpose: Analytics-ready compound analysis metrics
+
+
+
+SELECT
+    -- Drug-likeness category
+    drug_likeness,
+    predicted_absorption,
+    bbb_penetration,
+    
+    -- Counts
+    COUNT(*) AS compound_count,
+    
+    -- Property averages
+    ROUND(AVG(logp), 2) AS avg_logp,
+    ROUND(AVG(tpsa), 2) AS avg_tpsa,
+    ROUND(AVG(rotatable_bonds), 1) AS avg_rotatable_bonds,
+    ROUND(AVG(h_bond_donors), 1) AS avg_h_bond_donors,
+    ROUND(AVG(h_bond_acceptors), 1) AS avg_h_bond_acceptors,
+    
+    -- Data completeness
+    ROUND(AVG(CASE WHEN has_smiles THEN 1 ELSE 0 END) * 100, 1) AS pct_with_smiles,
+    ROUND(AVG(CASE WHEN has_mol_block THEN 1 ELSE 0 END) * 100, 1) AS pct_with_mol_block,
+    
+    -- Lipinski violations distribution
+    ROUND(AVG(lipinski_violations), 2) AS avg_lipinski_violations,
+    SUM(CASE WHEN lipinski_violations = 0 THEN 1 ELSE 0 END) AS ro5_compliant_count,
+    
+    CURRENT_TIMESTAMP() AS _dbt_loaded_at
+
+FROM LIFEARC_POC.PUBLIC_silver.int_compound_properties
+GROUP BY drug_likeness, predicted_absorption, bbb_penetration
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "model.lifearc_poc.mart_compound_analysis"} */;
+[0m16:24:29.709282 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.389 seconds
+[0m16:24:29.712594 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8ae5f443-db61-4206-92fc-5a863f4fb990', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16fe7ddc0>]}
+[0m16:24:29.713037 [info ] [Thread-2 (]: 7 of 8 OK created sql table model PUBLIC_gold.mart_compound_analysis ........... [[32mSUCCESS 1[0m in 1.40s]
+[0m16:24:29.713462 [debug] [Thread-2 (]: Finished running node model.lifearc_poc.mart_compound_analysis
+[0m16:24:29.714134 [debug] [Thread-4 (]: Began running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:29.714511 [info ] [Thread-4 (]: 8 of 8 START test accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like  [RUN]
+[0m16:24:29.714793 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_LIFEARC_POC_PUBLIC_gold, now test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b)
+[0m16:24:29.714987 [debug] [Thread-4 (]: Began compiling node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:29.719816 [debug] [Thread-4 (]: Writing injected SQL for node "test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b"
+[0m16:24:29.721488 [debug] [Thread-4 (]: Began executing node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:29.724476 [debug] [Thread-4 (]: Writing runtime sql for node "test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b"
+[0m16:24:29.726495 [debug] [Thread-4 (]: Using snowflake connection "test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b"
+[0m16:24:29.726768 [debug] [Thread-4 (]: On test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        drug_likeness as value_field,
+        count(*) as n_records
+
+    from LIFEARC_POC.PUBLIC_gold.mart_compound_analysis
+    group by drug_likeness
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'drug_like','borderline','non_drug_like'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lifearc_snowflake", "target_name": "dev", "node_id": "test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b"} */
+[0m16:24:30.216508 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.489 seconds
+[0m16:24:30.219895 [info ] [Thread-4 (]: 8 of 8 PASS accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like  [[32mPASS[0m in 0.51s]
+[0m16:24:30.220353 [debug] [Thread-4 (]: Finished running node test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b
+[0m16:24:30.221355 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:24:30.221634 [debug] [MainThread]: Connection 'model.lifearc_poc.mart_compound_analysis' was left open.
+[0m16:24:30.221799 [debug] [MainThread]: On model.lifearc_poc.mart_compound_analysis: Close
+[0m16:24:30.587488 [debug] [MainThread]: Connection 'test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1' was left open.
+[0m16:24:30.587950 [debug] [MainThread]: On test.lifearc_poc.not_null_stg_compounds_compound_id.d59b6f4ef1: Close
+[0m16:24:30.949484 [debug] [MainThread]: Connection 'test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b' was left open.
+[0m16:24:30.949866 [debug] [MainThread]: On test.lifearc_poc.accepted_values_mart_compound_analysis_drug_likeness__drug_like__borderline__non_drug_like.75b6da772b: Close
+[0m16:24:31.315830 [debug] [MainThread]: Connection 'model.lifearc_poc.int_compound_properties' was left open.
+[0m16:24:31.316459 [debug] [MainThread]: On model.lifearc_poc.int_compound_properties: Close
+[0m16:24:31.653045 [info ] [MainThread]: 
+[0m16:24:31.653757 [info ] [MainThread]: Finished running 2 table models, 5 data tests, 1 view model in 0 hours 0 minutes and 8.93 seconds (8.93s).
+[0m16:24:31.654636 [debug] [MainThread]: Command end result
+[0m16:24:31.675267 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/manifest.json
+[0m16:24:31.677663 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/semantic_manifest.json
+[0m16:24:31.682075 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/zzahid/Documents/GitHub/LifeArc/dbt/target/run_results.json
+[0m16:24:31.682264 [info ] [MainThread]: 
+[0m16:24:31.682458 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:24:31.682598 [info ] [MainThread]: 
+[0m16:24:31.682747 [info ] [MainThread]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=8
+[0m16:24:31.686787 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 10.385523, "process_in_blocks": "0", "process_kernel_time": 2.504326, "process_mem_max_rss": "236847104", "process_out_blocks": "0", "process_user_time": 3.215183}
+[0m16:24:31.687308 [debug] [MainThread]: Command `dbt build` succeeded at 16:24:31.687222 after 10.39 seconds
+[0m16:24:31.687579 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be49fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056f1fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056f2a20>]}
+[0m16:24:31.687838 [debug] [MainThread]: Flushing usage events
+[0m16:24:32.391996 [debug] [MainThread]: An error was encountered while trying to flush usage events

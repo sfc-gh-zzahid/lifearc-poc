@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_gene_sequences
+    description: "Cleaned gene sequence data (Bronze layer)"
+    columns:
+      - name: sequence_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: gene_name
+        description: "Standardized gene name (uppercase)"
+      - name: data_quality_flag
+        description: "Quality assessment based on sequence length"
+        tests:
+          - accepted_values:
+              values: ['too_short', 'minimal', 'adequate', 'good']
+
+  - name: stg_compounds
+    description: "Cleaned compound library data (Bronze layer)"
+    columns:
+      - name: compound_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: lipinski_violations
+        description: "Number of Lipinski rule violations"
+
+  - name: stg_clinical_results
+    description: "Cleaned clinical trial results (Bronze layer)"
+    columns:
+      - name: result_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: response_code
+        description: "Standardized response code (CR/PR/SD/PD)"
+        tests:
+          - accepted_values:
+              values: ['CR', 'PR', 'SD', 'PD', 'UNKNOWN']
+      - name: adverse_severity
+        description: "Categorized adverse event severity"
+        tests:
+          - accepted_values:
+              values: ['none', 'mild', 'moderate', 'severe']
