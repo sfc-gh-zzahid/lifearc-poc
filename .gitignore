@@ -21,3 +21,8 @@ venv/
 *.p8
 *.pem
 credentials.json
+.env
+.env.*
+
+# DBT profiles (contains connection credentials)
+dbt/profiles.yml
