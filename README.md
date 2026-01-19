@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains POC materials for the LifeArc Snowflake workshop, covering 6 use cases:
+This repository contains POC materials for the LifeArc Snowflake workshop, covering 6 use cases plus a complete **dbt data pipeline**:
 
 | Use Case | Type | Materials | Status |
 |----------|------|-----------|--------|
@@ -12,6 +12,55 @@ This repository contains POC materials for the LifeArc Snowflake workshop, cover
 | 4. Unstructured Data Handling | **Demo** | `streamlit_apps/unstructured_data_demo.py` | ✅ Validated |
 | 5. Data Contracts & Sharing | **Demo** | `sql_scripts/demo5_data_sharing_governance.sql` | ✅ Validated |
 | 6. Programmatic Access & Auth | **Demo** | `sql_scripts/demo6_programmatic_access_auth.sql` | ✅ Validated |
+| **DBT Pipeline** | **Demo** | `dbt/` | ✅ Production-Ready |
+
+## DBT Data Pipeline
+
+This repository includes a **production-ready dbt project** that implements a Bronze → Silver → Gold medallion architecture:
+
+```
+Bronze (Staging)              Silver (Intermediate)           Gold (Marts)
+────────────────             ───────────────────             ────────────
+stg_compounds          →     int_compound_properties    →    mart_compound_analysis
+stg_clinical_results   →     int_trial_patient_outcomes →    mart_trial_efficacy
+stg_gene_sequences     →                               →    mart_gene_analysis
+```
+
+### Deploy as Native Snowflake DBT PROJECT
+
+```sql
+-- 1. Create Git Repository Integration (for public repos)
+CREATE OR REPLACE API INTEGRATION my_git_integration
+  API_PROVIDER = GIT_HTTPS_API
+  API_ALLOWED_PREFIXES = ('https://github.com/')
+  ENABLED = TRUE;
+
+-- 2. Create Git Repository
+CREATE OR REPLACE GIT REPOSITORY my_git_repo
+  API_INTEGRATION = my_git_integration
+  ORIGIN = 'https://github.com/sfc-gh-zzahid/lifearc-poc.git';
+
+-- 3. Fetch latest
+ALTER GIT REPOSITORY my_git_repo FETCH;
+
+-- 4. Create DBT Project
+CREATE OR REPLACE DBT PROJECT my_dbt_project
+  FROM '@my_git_repo/branches/main/dbt'
+  USING WAREHOUSE DEMO_WH
+  WITH PROFILE_NAME = 'lifearc_snowflake'
+  WITH TARGET_NAME = 'dev';
+
+-- 5. Run dbt build
+EXECUTE DBT PROJECT my_dbt_project ARGS = 'build';
+```
+
+### Use in Snowsight Workspace
+
+1. Go to **Projects → Worksheets**
+2. Click **+ Workspace** → **Create workspace from Git repository**
+3. Enter: `https://github.com/sfc-gh-zzahid/lifearc-poc.git`
+4. Navigate to `dbt/` folder
+5. Run `dbt build` to execute the pipeline
 
 ## Snowflake Environment Status
 
@@ -29,6 +78,16 @@ This repository contains POC materials for the LifeArc Snowflake workshop, cover
 
 ```
 LifeArc/
+├── dbt/                             # ⭐ DBT Data Pipeline (Bronze→Silver→Gold)
+│   ├── models/
+│   │   ├── staging/                 # Bronze: Raw data cleaning
+│   │   ├── intermediate/            # Silver: Business logic
+│   │   └── marts/                   # Gold: Analytics-ready
+│   ├── seeds/                       # Reference data CSVs
+│   ├── macros/                      # Reusable SQL
+│   ├── tests/                       # Custom data tests
+│   ├── snapshots/                   # SCD Type 2 tracking
+│   └── analyses/                    # Ad-hoc queries
 ├── architecture/                    # Reference architectures (Use Cases 1-3)
 │   ├── usecase1_data_archiving.sql
 │   ├── usecase2_mlops_workflows.sql
