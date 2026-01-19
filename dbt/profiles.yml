@@ -1,0 +1,16 @@
+# LifeArc POC - DBT Profile for Snowflake Native Execution
+# This profile is designed for Snowflake's native dbt PROJECT execution
+# No credentials are stored - Snowflake uses the executing session's context
+
+lifearc_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      # These are required fields for dbt - Snowflake native execution 
+      # uses the session context, not these values for authentication
+      database: LIFEARC_POC
+      schema: PUBLIC
+      role: ACCOUNTADMIN
+      warehouse: DEMO_WH
+      threads: 4

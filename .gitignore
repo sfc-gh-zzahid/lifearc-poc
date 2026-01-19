@@ -23,6 +23,3 @@ venv/
 credentials.json
 .env
 .env.*
-
-# DBT profiles (contains connection credentials)
-dbt/profiles.yml
