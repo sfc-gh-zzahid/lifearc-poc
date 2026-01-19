@@ -1,0 +1,23 @@
+# DBT artifacts
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+~$*
+
+# IDE
+.idea/
+.vscode/
+
+# Secrets
+*.p8
+*.pem
+credentials.json
