@@ -578,6 +578,45 @@ if page == "Dashboard":
             st.altair_chart(chart, use_container_width=True)
         except:
             st.info("Model metrics loading...")
+    
+    # Key Insights Row
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Key Insights</p>', unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown(f"""
+        <div class="info-card" style="border-left: 4px solid {LIFEARC_COLORS['primary_teal']};">
+            <h4 style="color: {LIFEARC_COLORS['primary_teal']}; margin: 0 0 0.5rem 0;">Top Performers</h4>
+            <p style="margin: 0; font-size: 0.9rem;">
+                <strong>BRCA1/BRCA2</strong> trials lead with <strong>60-65%</strong> response rates.
+                Combination therapy adds <strong>+22%</strong> over standard care.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f"""
+        <div class="info-card" style="border-left: 4px solid {LIFEARC_COLORS['secondary_purple']};">
+            <h4 style="color: {LIFEARC_COLORS['secondary_purple']}; margin: 0 0 0.5rem 0;">Biomarker Impact</h4>
+            <p style="margin: 0; font-size: 0.9rem;">
+                <strong>Biomarker-positive</strong> patients show <strong>+25%</strong> higher response.
+                ctDNA confirmation adds <strong>+7%</strong> additional signal.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown(f"""
+        <div class="info-card" style="border-left: 4px solid {LIFEARC_COLORS['accent_coral']};">
+            <h4 style="color: {LIFEARC_COLORS['accent_coral']}; margin: 0 0 0.5rem 0;">Challenging Targets</h4>
+            <p style="margin: 0; font-size: 0.9rem;">
+                <strong>KRAS/TP53</strong> remain difficult with <strong>35-40%</strong> response rates.
+                Investment in novel mechanisms recommended.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # =============================================================================
 # PAGE: PATIENT PREDICTION
@@ -589,6 +628,15 @@ elif page == "Patient Prediction":
         <p>Enter patient characteristics to predict treatment response probability</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Trial-Gene mapping for auto-sync
+    TRIAL_GENE_MAP = {
+        "TRIAL-BRCA-001": "BRCA1",
+        "TRIAL-BRCA-002": "BRCA2", 
+        "TRIAL-EGFR-001": "EGFR",
+        "TRIAL-KRAS-001": "KRAS",
+        "TRIAL-TP53-001": "TP53"
+    }
     
     # Input Form
     col1, col2, col3 = st.columns(3)
@@ -603,7 +651,10 @@ elif page == "Patient Prediction":
             "TRIAL-BRCA-001", "TRIAL-BRCA-002", "TRIAL-EGFR-001", 
             "TRIAL-KRAS-001", "TRIAL-TP53-001"
         ])
-        target_gene = st.selectbox("Target Gene", ["BRCA1", "BRCA2", "EGFR", "KRAS", "TP53"])
+        # Auto-select gene based on trial
+        default_gene = TRIAL_GENE_MAP.get(trial_id, "BRCA1")
+        gene_options = ["BRCA1", "BRCA2", "EGFR", "KRAS", "TP53"]
+        target_gene = st.selectbox("Target Gene", gene_options, index=gene_options.index(default_gene))
         biomarker_status = st.selectbox("Biomarker Status", ["POSITIVE", "NEGATIVE"])
         ctdna = st.selectbox("ctDNA Confirmation", ["YES", "NO"])
     
@@ -666,6 +717,18 @@ elif page == "Patient Prediction":
             st.markdown("<br>", unsafe_allow_html=True)
             col1, col2, col3 = st.columns([1, 2, 1])
             
+            # Determine confidence level for styling
+            confidence_pct = max(prob_responder, prob_non_responder) * 100
+            if confidence_pct >= 80:
+                confidence_level = "HIGH"
+                confidence_color = LIFEARC_COLORS['primary_teal']
+            elif confidence_pct >= 60:
+                confidence_level = "MEDIUM"
+                confidence_color = LIFEARC_COLORS['warning_amber']
+            else:
+                confidence_level = "LOW"
+                confidence_color = LIFEARC_COLORS['accent_coral']
+            
             with col2:
                 if predicted_class == 1:
                     st.markdown(f"""
@@ -673,6 +736,9 @@ elif page == "Patient Prediction":
                         <h2>PREDICTED RESPONDER</h2>
                         <p class="probability">{prob_responder*100:.1f}%</p>
                         <p class="subtitle">Probability of Treatment Response</p>
+                        <p style="margin-top: 1rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.2); border-radius: 20px; display: inline-block;">
+                            Confidence: <strong>{confidence_level}</strong>
+                        </p>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
@@ -681,11 +747,85 @@ elif page == "Patient Prediction":
                         <h2>PREDICTED NON-RESPONDER</h2>
                         <p class="probability">{prob_non_responder*100:.1f}%</p>
                         <p class="subtitle">Probability of Non-Response</p>
+                        <p style="margin-top: 1rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.2); border-radius: 20px; display: inline-block;">
+                            Confidence: <strong>{confidence_level}</strong>
+                        </p>
                     </div>
                     """, unsafe_allow_html=True)
             
-            # Probability Chart
+            # Historical Comparison
             st.markdown("<br>", unsafe_allow_html=True)
+            st.markdown('<p class="section-header">How Does This Patient Compare?</p>', unsafe_allow_html=True)
+            
+            try:
+                # Get historical response rates for similar patients
+                comparison_query = f"""
+                SELECT 
+                    'Same Biomarker Profile' AS COMPARISON,
+                    ROUND(AVG(CASE WHEN RESPONSE_CATEGORY IN ('Complete_Response', 'Partial_Response') 
+                                   THEN 1 ELSE 0 END) * 100, 1) AS HISTORICAL_RATE,
+                    COUNT(*) AS SAMPLE_SIZE
+                FROM LIFEARC_POC.BENCHMARK.CLINICAL_TRIAL_RESULTS_1M
+                WHERE BIOMARKER_STATUS = '{biomarker_status}' AND CTDNA_CONFIRMATION = '{ctdna}'
+                UNION ALL
+                SELECT 
+                    'Same Treatment Arm',
+                    ROUND(AVG(CASE WHEN RESPONSE_CATEGORY IN ('Complete_Response', 'Partial_Response') 
+                                   THEN 1 ELSE 0 END) * 100, 1),
+                    COUNT(*)
+                FROM LIFEARC_POC.BENCHMARK.CLINICAL_TRIAL_RESULTS_1M
+                WHERE TREATMENT_ARM = '{treatment_arm}'
+                UNION ALL
+                SELECT 
+                    'Same Target Gene',
+                    ROUND(AVG(CASE WHEN RESPONSE_CATEGORY IN ('Complete_Response', 'Partial_Response') 
+                                   THEN 1 ELSE 0 END) * 100, 1),
+                    COUNT(*)
+                FROM LIFEARC_POC.BENCHMARK.CLINICAL_TRIAL_RESULTS_1M
+                WHERE TARGET_GENE = '{target_gene}'
+                UNION ALL
+                SELECT 
+                    'Overall Population',
+                    ROUND(AVG(CASE WHEN RESPONSE_CATEGORY IN ('Complete_Response', 'Partial_Response') 
+                                   THEN 1 ELSE 0 END) * 100, 1),
+                    COUNT(*)
+                FROM LIFEARC_POC.BENCHMARK.CLINICAL_TRIAL_RESULTS_1M
+                """
+                comparison_df = session.sql(comparison_query).to_pandas()
+                comparison_df['PREDICTED'] = prob_responder * 100
+                
+                # Create comparison chart
+                chart_data = comparison_df.melt(
+                    id_vars=['COMPARISON'], 
+                    value_vars=['HISTORICAL_RATE', 'PREDICTED'],
+                    var_name='Type',
+                    value_name='Rate'
+                )
+                chart_data['Type'] = chart_data['Type'].replace({
+                    'HISTORICAL_RATE': 'Historical',
+                    'PREDICTED': 'This Patient'
+                })
+                
+                comparison_chart = alt.Chart(chart_data).mark_bar(
+                    cornerRadiusTopLeft=4,
+                    cornerRadiusTopRight=4
+                ).encode(
+                    x=alt.X('COMPARISON:N', title='', sort=None),
+                    y=alt.Y('Rate:Q', title='Response Rate (%)', scale=alt.Scale(domain=[0, 100])),
+                    color=alt.Color('Type:N', scale=alt.Scale(
+                        domain=['Historical', 'This Patient'],
+                        range=[LIFEARC_COLORS['text_muted'], LIFEARC_COLORS['primary_teal']]
+                    )),
+                    xOffset='Type:N',
+                    tooltip=['COMPARISON', 'Type', 'Rate']
+                ).properties(height=300)
+                
+                st.altair_chart(comparison_chart, use_container_width=True)
+                
+            except Exception as comp_err:
+                st.info("Historical comparison data not available")
+            
+            # Probability Chart
             st.markdown('<p class="section-header">Probability Distribution</p>', unsafe_allow_html=True)
             
             prob_df = pd.DataFrame({
