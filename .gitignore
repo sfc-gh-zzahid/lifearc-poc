@@ -23,3 +23,6 @@ venv/
 credentials.json
 .env
 .env.*
+
+# Internal validation artifacts
+reviews/

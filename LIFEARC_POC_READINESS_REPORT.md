@@ -80,7 +80,7 @@
 
 | Feature | Status | Evidence |
 |---------|--------|----------|
-| Key-pair authentication | ✅ PASS | ZZAHID authenticated via keypair |
+| Key-pair authentication | ✅ PASS | User authenticated via keypair |
 | Network policy | ✅ PASS | LIFEARC_ML_NETWORK_POLICY (3 allowed IPs) |
 | Python SDK access | ✅ PASS | `snow sql` CLI working |
 
@@ -316,5 +316,4 @@ Updated architecture diagrams available in `ARCHITECTURE_DIAGRAMS.md`:
 
 **Report Generated:** January 20, 2026  
 **Validation Tool:** Cortex Code  
-**Connection:** sfseeeurope_keypair  
 **Database:** LIFEARC_POC

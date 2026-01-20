@@ -120,7 +120,7 @@ from snowflake.ml.registry import Registry
 ### 2.1 Dashboard: LIFEARC_ML_DASHBOARD
 
 **Location:** `LIFEARC_POC.ML_DEMO.LIFEARC_ML_DASHBOARD`  
-**URL:** https://app.snowflake.com/sfseeurope/demo453/#/streamlit-apps/LIFEARC_POC.ML_DEMO.LIFEARC_ML_DASHBOARD
+**URL:** Access via Snowsight → Apps → LIFEARC_POC.ML_DEMO.LIFEARC_ML_DASHBOARD
 
 **Features:**
 1. **Patient Prediction** - Real-time response prediction with confidence scores
@@ -327,12 +327,12 @@ from snowflake.ml.registry import Registry
 
 All 9 Snowflake differentiators validated at scale. Python-native ML addresses data scientist concerns. Streamlit dashboard provides executive-ready UI. Cost governance addresses CFO concerns. 66% accuracy proves realistic ML value.
 
-### Demo URLs
+### Demo Access
 
-| Asset | URL |
-|-------|-----|
-| ML Dashboard | https://app.snowflake.com/sfseeurope/demo453/#/streamlit-apps/LIFEARC_POC.ML_DEMO.LIFEARC_ML_DASHBOARD |
-| ML Notebook | https://app.snowflake.com/sfseeurope/demo453/#/notebooks/LIFEARC_POC.ML_DEMO.LIFEARC_ML_PRODUCTION_NOTEBOOK |
+| Asset | Location |
+|-------|----------|
+| ML Dashboard | Snowsight → Apps → LIFEARC_POC.ML_DEMO.LIFEARC_ML_DASHBOARD |
+| ML Notebook | Snowsight → Notebooks → LIFEARC_POC.ML_DEMO.LIFEARC_ML_PRODUCTION_NOTEBOOK |
 
 ---
 
