@@ -4,93 +4,76 @@
 
 ```mermaid
 flowchart LR
-    subgraph Sources["🔗 Sources"]
+    subgraph Sources["🔗 External Sources"]
         direction TB
-        GH[("GitHub")]
-        EXT[("External\nData")]
+        GH[("GitHub\nDBT Code")]
+        LAB[("Lab Systems\nClinical Data")]
+        DOCS[("Documents\nResearch PDFs")]
     end
 
-    subgraph Ingestion["📥 Ingestion"]
-        direction TB
-        GIT["Git Repository\nLIFEARC_GIT_REPO"]
-        DBT["Native DBT\nVERSION$8"]
-    end
-
-    subgraph Storage["💾 Storage (Medallion)"]
-        direction TB
-        BRONZE["🥉 Bronze\nPUBLIC_BRONZE"]
-        SILVER["🥈 Silver\nPUBLIC_SILVER"]
-        GOLD["🥇 Gold\nPUBLIC_GOLD"]
-    end
-
-    subgraph Processing["⚙️ Processing"]
-        direction TB
-        subgraph AI["Cortex AI"]
-            SV["Semantic View"]
-            LLM["Cortex LLM"]
-            SEARCH["Cortex Search"]
+    subgraph Snowflake["❄️ SNOWFLAKE - Single Platform"]
+        subgraph Ingestion["📥 Ingestion"]
+            direction TB
+            GIT["Git Repository"]
+            STAGE["Internal Stages"]
         end
-        subgraph ML["ML Pipeline"]
-            FEATURES["Feature Store"]
-            MODEL["ML Model"]
-            REGISTRY["Registry"]
+
+        subgraph Storage["💾 Medallion Storage"]
+            direction TB
+            BRONZE["🥉 Bronze"]
+            SILVER["🥈 Silver"]
+            GOLD["🥇 Gold"]
         end
-        subgraph Gov["Governance"]
-            TAGS["Tags"]
-            MASK["Masking"]
-            RAP["Row Access"]
+
+        subgraph Intelligence["🧠 AI/ML (Data Stays Here)"]
+            direction TB
+            CORTEX["Cortex LLM\n+ Search"]
+            MLPIPE["Snowflake ML"]
+        end
+
+        subgraph Governance["🔒 Governance"]
+            direction TB
+            TAGS["Tags + Policies"]
         end
     end
 
     subgraph Consumption["👥 Consumption"]
         direction TB
-        APP1["📊 Intelligence\nDemo"]
-        APP2["📁 Unstructured\nDemo"]
-        APP3["🧪 ML\nDashboard"]
-        SHARE["🤝 CRO Share\nZero-Copy"]
+        APPS["📊 Streamlit Apps\n3 Deployed"]
+        SHARE["🤝 Zero-Copy Share\nLIFEARC_CRO_SHARE"]
     end
 
-    subgraph Users["🎯 Users"]
+    subgraph Users["🎯 Business Value"]
         direction TB
-        EXEC["Executives"]
-        DS["Data Scientists"]
-        CRO["CRO Partners"]
+        EXEC["Executives\nData-Driven Decisions"]
+        CRO["CRO Partners\nLive Collaboration"]
     end
 
     GH --> GIT
-    EXT --> GIT
-    GIT --> DBT
-    DBT --> BRONZE
-    BRONZE --> SILVER
-    SILVER --> GOLD
+    LAB --> STAGE
+    DOCS --> STAGE
     
-    GOLD --> SV
-    GOLD --> FEATURES
+    GIT --> BRONZE
+    STAGE --> BRONZE
+    BRONZE --> SILVER --> GOLD
+    
+    GOLD --> CORTEX
+    GOLD --> MLPIPE
     GOLD --> TAGS
     
-    SV --> LLM
-    SV --> SEARCH
-    FEATURES --> MODEL
-    MODEL --> REGISTRY
-    TAGS --> MASK
-    MASK --> RAP
+    CORTEX --> APPS
+    MLPIPE --> APPS
+    TAGS --> SHARE
     
-    LLM --> APP1
-    SEARCH --> APP1
-    REGISTRY --> APP3
-    RAP --> SHARE
-    
-    APP1 --> EXEC
-    APP3 --> DS
-    SHARE -.->|Live Data| CRO
+    APPS --> EXEC
+    SHARE -.->|"Zero-Copy\nReal-Time\nGoverned"| CRO
 
-    style Sources fill:#6C757D,color:#fff
-    style Ingestion fill:#17A2B8,color:#fff
-    style Storage fill:#FFC107,color:#000
-    style Processing fill:#29B5E8,color:#fff
-    style Consumption fill:#28A745,color:#fff
-    style Users fill:#6F42C1,color:#fff
+    style Snowflake fill:#29B5E8,color:#fff
+    style Intelligence fill:#FF6B35,color:#fff
+    style Governance fill:#2E8B57,color:#fff
 ```
+
+**Key Message:** Everything runs in ONE platform. Data never leaves. AI is HIPAA-safe.
 
 ---
 
@@ -163,65 +146,54 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph Input["💬 Input"]
-        Q["Natural Language\nQuestion"]
+    subgraph User["💬 User Question"]
+        Q["'Why are CNS\ncompounds failing?'"]
+    end
+
+    subgraph Cortex["🧠 Cortex AI Engine"]
+        direction TB
+        LLM["LLM Interprets\nIntent"]
+        SQLGEN["SQL Generation"]
     end
 
     subgraph Semantic["📊 Semantic Layer"]
-        SV["Semantic View\nDRUG_DISCOVERY_SEMANTIC_VIEW"]
-        
-        subgraph Tables["Logical Tables"]
+        SV["Semantic View\nDefines Schema"]
+        subgraph Tables["5 Logical Tables"]
             direction TB
-            T1["compounds"]
-            T2["trials"]
-            T3["programs"]
-            T4["research"]
-            T5["scorecard"]
+            T1["compounds\n(29 rows)"]
+            T2["trials\n(17 rows)"]
+            T3["programs\n(9 rows)"]
         end
     end
 
-    subgraph Cortex["🧠 Cortex AI"]
-        direction TB
-        LLM["LLM\nllama3.1-70b"]
-        CSS["Cortex Search\nSemantic Retrieval"]
-    end
-
-    subgraph Physical["💾 Physical Tables"]
+    subgraph Data["💾 Query Execution"]
         direction TB
         PT1[("COMPOUND_PIPELINE\nANALYSIS")]
         PT2[("CLINICAL_TRIAL\nPERFORMANCE")]
         PT3[("PROGRAM_ROI\nSUMMARY")]
-        PT4[("RESEARCH\nINTELLIGENCE")]
-        PT5[("BOARD_CANDIDATE\nSCORECARD")]
     end
 
-    subgraph Output["✅ Output"]
-        A["Data-Backed Answer\n+ Business Action"]
+    subgraph Answer["✅ Business Insight"]
+        A["CNS: LogP=6.6\n(too hydrophobic)\n\nAction: Adjust\nchemistry guidelines"]
     end
 
-    Q --> SV
+    Q --> LLM
+    LLM --> SQLGEN
+    SQLGEN --> SV
     SV --> Tables
-    Tables --> LLM
-    Tables --> CSS
-    
-    LLM --> PT1
-    LLM --> PT2
-    LLM --> PT3
-    CSS --> PT4
-    LLM --> PT5
-    
+    Tables --> PT1
+    Tables --> PT2
+    Tables --> PT3
     PT1 --> A
     PT2 --> A
     PT3 --> A
-    PT4 --> A
-    PT5 --> A
 
-    style Input fill:#6C757D,color:#fff
-    style Semantic fill:#FF6B35,color:#fff
     style Cortex fill:#29B5E8,color:#fff
-    style Physical fill:#FFC107,color:#000
-    style Output fill:#28A745,color:#fff
+    style Semantic fill:#FF6B35,color:#fff
+    style Answer fill:#28A745,color:#fff
 ```
+
+**Key Message:** Natural language → SQL → Data-backed answer. PHI never leaves Snowflake.
 
 ---
 
@@ -404,127 +376,114 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph Sources["Unstructured Sources"]
-        FASTA["FASTA Files\n(Gene Sequences)"]
-        SDF["SDF Files\n(Molecular Structures)"]
-        JSON["JSON Files\n(Clinical Protocols)"]
-        PDF["Research Documents"]
+    subgraph Sources["📁 Life Sciences Files"]
+        direction TB
+        FASTA["FASTA Files\nGene Sequences"]
+        JSON["JSON Files\nClinical Protocols"]
+        PDF["Research PDFs\nPublications"]
     end
 
-    subgraph Processing["Snowflake Processing"]
-        subgraph UDFs["Python UDFs"]
-            PARSE["PARSE_FASTA\n• Extract sequences\n• Calculate GC content\n• Parse metadata"]
+    subgraph Processing["⚙️ Snowflake Processing"]
+        direction TB
+        subgraph Native["Native Capabilities"]
+            PARSE["PARSE_FASTA UDF\nPython UDTF"]
+            VAR["VARIANT Type\nJSON path notation"]
         end
-        
-        subgraph Variant["VARIANT Storage"]
-            VAR["Semi-structured Data\n• Nested JSON\n• Flexible schema\n• Path notation"]
-        end
-        
-        subgraph CortexAI["Cortex AI"]
-            LLM["Cortex COMPLETE\n• Summarization\n• Entity extraction\n• Q&A"]
-            SEARCH["Cortex Search\n• Semantic similarity\n• Document retrieval"]
+        subgraph Cortex["Cortex AI"]
+            LLM["CORTEX.COMPLETE\nSummarize, Extract"]
+            SEARCH["Cortex Search\nSemantic retrieval"]
         end
     end
 
-    subgraph Storage["Structured Storage"]
-        GENES[("GENE_SEQUENCES\n• sequence_id\n• gc_content\n• seq_length")]
-        COMPOUNDS[("COMPOUND_LIBRARY\n• properties: VARIANT\n• mol_block: TEXT")]
-        TRIALS[("CLINICAL_TRIALS\n• protocol_data: VARIANT")]
-        RESEARCH[("RESEARCH_INTELLIGENCE\n• full_text\n• key_finding")]
+    subgraph Output["📊 Queryable Data"]
+        direction TB
+        GENES[("35 Molecules\nGC Content, Length")]
+        TRIALS[("Clinical Trials\nprotocol_data:field")]
+        INTEL[("Research Intel\nC797S 42%, MET 28%")]
     end
 
-    subgraph Query["Query Patterns"]
-        SQL1["SELECT gc_content\nFROM gene_sequences"]
-        SQL2["SELECT properties:logP\nFROM compounds"]
-        SQL3["LATERAL FLATTEN\n(protocol_data:arms)"]
-        SQL4["Cortex Search\n'DNA repair inhibitors'"]
+    subgraph Query["🔍 SQL Queries"]
+        SQL1["SELECT gc_content\nFROM compounds"]
+        SQL2["SELECT protocol:arms\nFROM trials"]
+        SQL3["'EGFR resistance'\nCortex Search"]
     end
 
-    FASTA --> PARSE
-    PARSE --> GENES
-    
-    SDF --> VAR
-    VAR --> COMPOUNDS
-    
-    JSON --> VAR
-    VAR --> TRIALS
-    
-    PDF --> LLM
-    LLM --> RESEARCH
-    RESEARCH --> SEARCH
+    FASTA --> PARSE --> GENES
+    JSON --> VAR --> TRIALS
+    PDF --> LLM --> INTEL
+    INTEL --> SEARCH
     
     GENES --> SQL1
-    COMPOUNDS --> SQL2
-    TRIALS --> SQL3
-    SEARCH --> SQL4
+    TRIALS --> SQL2
+    SEARCH --> SQL3
 
     style Processing fill:#29B5E8,color:#fff
-    style CortexAI fill:#FF6B35,color:#fff
+    style Cortex fill:#FF6B35,color:#fff
+    style Output fill:#28A745,color:#fff
 ```
+
+**Key Message:** Unstructured → Structured → SQL-queryable. All in Snowflake, no external tools.
 
 ---
 
-## 8. Snowflake vs Competitors Comparison
+## 8. Snowflake vs Competitors - Why It Matters for LifeArc
 
 ```mermaid
 flowchart LR
-    subgraph Requirement["🎯 Life Sciences Requirements"]
+    subgraph Challenge["🎯 LifeArc Challenge"]
         direction TB
-        R1["Zero-Copy Sharing"]
-        R2["Time Travel"]
-        R3["Instant Cloning"]
-        R4["HIPAA-Safe AI"]
-        R5["Per-Second Billing"]
-        R6["Auto-Suspend"]
-        R7["Native Apps"]
+        C1["Share trial data\nwith CROs securely"]
+        C2["AI on PHI data\n(HIPAA compliance)"]
+        C3["Audit trail for\nregulatory (GxP)"]
+        C4["Cost control\n(variable workloads)"]
     end
 
-    subgraph Snowflake["❄️ Snowflake"]
+    subgraph Snowflake["❄️ Snowflake Solution"]
         direction TB
-        S1["✅ Native zero-copy"]
-        S2["✅ 90 days default"]
-        S3["✅ Instant, metadata-only"]
-        S4["✅ Cortex (data stays)"]
-        S5["✅ Per-second"]
-        S6["✅ Auto-suspend/resume"]
-        S7["✅ Native Streamlit"]
+        S1["✅ Zero-Copy Share\nNo data duplication"]
+        S2["✅ Cortex AI\nData stays in platform"]
+        S3["✅ Time Travel\n90 days default"]
+        S4["✅ Per-Second Billing\nAuto-suspend"]
     end
 
-    subgraph Databricks["🔶 Databricks"]
+    subgraph Databricks["🔶 Databricks Gap"]
         direction TB
-        D1["⚠️ Delta Sharing copies"]
-        D2["⚠️ 30 days, config needed"]
-        D3["⚠️ Requires setup"]
-        D4["❌ External APIs needed"]
-        D5["❌ Per-hour"]
-        D6["⚠️ Manual cluster mgmt"]
-        D7["⚠️ Databricks Apps newer"]
+        D1["❌ Delta Sharing\nrequires data copy"]
+        D2["❌ External APIs\ndata leaves platform"]
+        D3["⚠️ 30 days\nrequires config"]
+        D4["❌ Per-hour billing\ncluster overhead"]
     end
 
-    subgraph Fabric["🔷 Microsoft Fabric"]
+    subgraph Fabric["🔷 Fabric Gap"]
         direction TB
-        F1["❌ No zero-copy"]
-        F2["❌ No Time Travel"]
-        F3["❌ Full copy required"]
-        F4["❌ Azure OpenAI (data leaves)"]
-        F5["❌ Capacity-based"]
-        F6["⚠️ Limited auto-scale"]
-        F7["⚠️ Power BI only"]
+        F1["❌ No cross-org\nsharing"]
+        F2["❌ Azure OpenAI\ndata leaves warehouse"]
+        F3["❌ No native\nTime Travel"]
+        F4["❌ Capacity-based\nno auto-suspend"]
     end
 
-    R1 --> S1
-    R2 --> S2
-    R3 --> S3
-    R4 --> S4
-    R5 --> S5
-    R6 --> S6
-    R7 --> S7
+    C1 --> S1
+    C2 --> S2
+    C3 --> S3
+    C4 --> S4
+    
+    S1 -.-x D1
+    S2 -.-x D2
+    S3 -.-x D3
+    S4 -.-x D4
+    
+    S1 -.-x F1
+    S2 -.-x F2
+    S3 -.-x F3
+    S4 -.-x F4
 
-    style Requirement fill:#6C757D,color:#fff
+    style Challenge fill:#6C757D,color:#fff
     style Snowflake fill:#29B5E8,color:#fff
     style Databricks fill:#FF3621,color:#fff
     style Fabric fill:#0078D4,color:#fff
 ```
+
+**Key Message:** Snowflake solves LifeArc's specific challenges. Competitors have architectural gaps.
 
 ---
 
@@ -571,56 +530,52 @@ sequenceDiagram
 
 ---
 
-## 10. Complete System Context
+## 10. The 9 Snowflake Differentiators - Executive Summary
 
 ```mermaid
 flowchart LR
-    subgraph External["🌐 External"]
+    subgraph Differentiators["❄️ 9 SNOWFLAKE DIFFERENTIATORS"]
         direction TB
-        GITHUB["GitHub\nSource Control"]
-    end
-
-    subgraph Users["👥 Users"]
-        direction TB
-        EXEC["Executive\nVP R&D / CSO"]
-        DS["Data Scientist\nML/Analytics"]
-        CRO["CRO Partner\nExternal"]
-    end
-
-    subgraph Platform["❄️ Snowflake Platform"]
-        direction TB
-        subgraph Apps["Streamlit Apps"]
-            APP1["Intelligence Demo"]
-            APP2["ML Dashboard"]
+        subgraph DataMgmt["Data Management"]
+            D1["1️⃣ Zero-Copy Sharing\nLIFEARC_CRO_SHARE"]
+            D2["2️⃣ Instant Cloning\nDev/Test in seconds"]
+            D3["3️⃣ Time Travel\n90 days audit trail"]
         end
-        subgraph Core["Core Services"]
-            INTEL["Snowflake\nIntelligence"]
-            MLPIPE["ML\nPipeline"]
-            GOV["Data\nGovernance"]
-            SHARE["Data\nSharing"]
+        subgraph AI["AI/ML"]
+            D4["4️⃣ Cortex AI\nHIPAA-safe LLMs"]
+            D5["5️⃣ Cortex Search\nSemantic retrieval"]
+            D6["6️⃣ Native ML\nData never leaves"]
+        end
+        subgraph Platform["Platform"]
+            D7["7️⃣ SQL Governance\nTags queryable"]
+            D8["8️⃣ Streamlit Apps\n3 deployed"]
+            D9["9️⃣ Per-Second Billing\n4 resource monitors"]
         end
     end
 
-    GITHUB -->|Git Sync| Platform
-    
-    EXEC -->|Questions| APP1
-    APP1 --> INTEL
-    
-    DS -->|Models| APP2
-    APP2 --> MLPIPE
-    
-    INTEL --> GOV
-    MLPIPE --> GOV
-    SHARE --> GOV
-    
-    SHARE -.->|Zero-Copy| CRO
+    subgraph Validated["✅ POC VALIDATED"]
+        direction TB
+        V1["93% tests passed\n42/45 checks"]
+        V2["5 'Why' questions\nanswered"]
+        V3["3 Streamlit apps\ndeployed"]
+    end
 
-    style External fill:#6C757D,color:#fff
-    style Users fill:#6F42C1,color:#fff
-    style Platform fill:#29B5E8,color:#fff
-    style Apps fill:#28A745,color:#fff
-    style Core fill:#FF6B35,color:#fff
+    subgraph Value["💰 BUSINESS VALUE"]
+        direction TB
+        B1["CRO Collaboration\nReal-time, governed"]
+        B2["Regulatory Ready\nGxP, HIPAA, 21 CFR 11"]
+        B3["Cost Optimized\nAuto-suspend, no copies"]
+    end
+
+    Differentiators --> Validated
+    Validated --> Value
+
+    style Differentiators fill:#29B5E8,color:#fff
+    style Validated fill:#28A745,color:#fff
+    style Value fill:#FFD700,color:#000
 ```
+
+**Key Message:** 9 capabilities competitors cannot match → Validated in POC → Real business value for LifeArc.
 
 ---
 
